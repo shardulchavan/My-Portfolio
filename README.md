@@ -1,9 +1,8 @@
 # Portfolio Website
 
-Decided to visit the realm of web dev again so made a small minimalistic portfolio website for myself.  
-Have a look and feel free to drop in any suggestions to me on my mail  
+Decided to develop my portfolio Website.
 <br/>
-The website is live at : <a href="https://a-nikhil.github.io/">a-nikhil.github.io</a>
+The website is live at : <a href="https://shardulchavan.github.io/My-Portfolio/">shardulchavan.github.io/My-Portfolio/</a>
 <br/>
 <br/>
 Thanks!!
