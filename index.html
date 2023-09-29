@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Nikhil Anand" />
+    <meta name="description" content="Portfolio Website" />
+    <title>Shardul Chavan</title>
+    <link rel="icon" href="icons/myIcon.jpg" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/6433fc8980.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  </head>
+  <body>
+    <script>
+      // Animate Progress bar
+      let i = 0;
+
+      function setTitle(progressBar) {
+        progressBar.innerHTML = "Proficiency";
+      }
+
+      function animateMe(progressBarId, progress) {
+        let progressBar = document.getElementById(progressBarId);
+        let width = 1;
+        console.log(progressBar.getAttribute("style"));
+        console.log(typeof progressBar.getAttribute("style"));
+        if (progressBar.getAttribute("style") === null) {
+          let id = setInterval(frame, 20);
+
+          function frame() {
+            if (width >= progress) {
+              clearInterval(id);
+              setTitle(progressBar);
+            } else {
+              width++;
+              // progressBar.style.width = width + "%";
+              progressBar.setAttribute("style", "width: " + width + "%");
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Navbar -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-0 col-md-1 col-lg-2"></div>
+        <div class="col-sm-12 col-md-10 col-lg-8 justify-content-center">
+          <nav class="navbar nav justify-content-center">
+            <a class="navbar-brand" href="index.html">Shardul Chavan</a>
+          </nav>
+          <div class="row">
+            <div class="col-sm-0 col-md-1 col-lg-1"></div>
+            <div class="col-sm-12 col-md-10 col-lg-10">
+              <div class="navigation-pills">
+                <ul
+                  class="nav nav-pills nav-justified"
+                  id="pills-tab"
+                  role="tablist"
+                >
+                  <li class="nav-item">
+                    <a
+                      class="nav-link active"
+                      id="pills-home-tab"
+                      data-toggle="pill"
+                      href="#pills-home"
+                      role="tab"
+                      aria-controls="pills-home"
+                      aria-selected="true"
+                    >
+                      <i class="fas fa-house-user"></i>
+                      <div class="icon-to-heading"></div>
+                      <br />
+                      Home
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      id="pills-Skills-tab"
+                      data-toggle="pill"
+                      href="#pills-skills"
+                      role="tab"
+                      aria-controls="pills-skills"
+                      aria-selected="false"
+                    >
+                      <i class="fas fa-robot"></i>
+                      <div class="icon-to-heading"></div>
+                      <br />
+                      Skills
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      id="pills-Projects-tab"
+                      data-toggle="pill"
+                      href="#pills-projects"
+                      role="tab"
+                      aria-controls="pills-projects"
+                      aria-selected="false"
+                    >
+                      <i class="fab fa-github"></i>
+                      <div class="icon-to-heading"></div>
+                      <br />
+                      Projects
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      id="pills-contact-tab"
+                      data-toggle="pill"
+                      href="#pills-contact"
+                      role="tab"
+                      aria-controls="pills-contact"
+                      aria-selected="false"
+                    >
+                      <i class="far fa-id-card"></i>
+                      <div class="icon-to-heading"></div>
+                      <br />
+                      Contact
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-0 col-md-1 col-lg-1"></div>
+          </div>
+        </div>
+        <div class="col-sm-0 col-md-1 col-lg-2"></div>
+      </div>
+    </div>
+
+    <!-- Resume -->
+    <div id="mySidenav" class="sidenav">
+      <a href="resume/ShardulResume.pdf" target="_blank">
+        Resume
+        <div class="icon-to-heading"></div>
+        <div class="icon-to-heading"></div>
+        <div class="icon-to-heading"></div>
+        <div class="icon-to-heading"></div>
+        <i class="fas fa-file-download"></i>
+      </a>
+    </div>
+
+    <div class="tab-content" id="pills-tabContent">
+      <!-- Home -->
+      <div
+        class="tab-pane fade show active"
+        id="pills-home"
+        role="tabpanel"
+        aria-labelledby="pills-home-tab"
+      >
+        <!-- Jumbotron Text -->
+        <div class="jumbotron">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-0 col-md-1 col-lg-2"></div>
+              <div class="col-sm-12 col-md-10 col-lg-8">
+                <div class="row">
+                  <div class="col-4">
+                    <div class="box">
+                      <img
+                        class="profile"
+                        src="img/profile-pic-1.png"
+                        alt="my picture here"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-8">
+                    <p class="title-body">
+                      <span class="well-hello-there"
+                        >Well, hello there !! 👋🏻</span
+                      >
+                      <br />
+                    </p>
+                    <p class="title-body">
+                      I am
+                      <span id="nikhil-anand-jumbotron">Shardul Chavan</span>
+                      <br />
+                      <u class="dashed-hello">
+                        I love computers and the science that drives it. </u
+                      ><br />
+                      Welcome to my <b>world</b>, say <b>Hello</b> <br /><br />
+                    </p>
+                    <blockquote class="blockquote text-left font-italic">
+                      <p class="mb-0">
+                        Why do machine learning engineers prefer cats over
+                        dogs?<br />
+                        Because cats are experts at unsupervised learning – they
+                        ignore you until they decide you're important!
+                      </p>
+                      <footer class="blockquote-footer small font-italic">
+                        my favourite CS joke
+                      </footer>
+                    </blockquote>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-0 col-md-1 col-lg-2"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- About Content -->
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-0 col-md-1 col-lg-2"></div>
+            <div class="col-sm-12 col-md-10 col-lg-8">
+              <p class="display-6" style="font-weight: bold">
+                <u>About Me</u>
+              </p>
+              <p class="about">
+                Welcome to my portfolio! I am a passionate Information Systems
+                Graduate Student at <b>Northeastern University</b>, driven by a
+                deep love for data science and coding. With a creative mindset
+                and a relentless pursuit of excellence, I thrive on crafting
+                data-driven solutions that uncover actionable insights.<br /><br />
+
+                Proficient in <b>Python, R, and SQL</b>, I possess the technical
+                prowess to transform complex data into meaningful patterns and
+                valuable business recommendations. From developing machine
+                learning algorithms for predictive modeling to mastering the art
+                of
+                <u class="dashed-hello">Natural Language Processing (NLP)</u>, I
+                am always eager to take on new challenges.But it's not just
+                about technical expertise; I strongly believe in the power of
+                collaboration, ethical conduct, and personal growth. I am fueled
+                by the desire to learn and continuously expand my skills in the
+                ever-evolving world of data science.<br /><br />
+
+                As I venture into the job market, I am excited to explore
+                opportunities for internships, data science positions, or even a
+                role as a Machine Learning Engineer. I am open to diverse
+                opportunities that allow me to leverage my passion for data
+                science and coding to make a real impact.<br /><br />
+
+                Let's connect and explore how I can bring my enthusiasm for data
+                science to add value to your organization. Together, we can
+                embark on an exciting journey of data exploration and
+                innovation. Are you ready to unleash the full potential of data?
+                Let's dive in!<br /><br />
+              </p>
+            </div>
+            <div class="col-sm-0 col-md-1 col-lg-2"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills -->
+      <div
+        class="tab-pane fade"
+        id="pills-skills"
+        role="tabpanel"
+        aria-labelledby="pills-Skills-tab"
+      >
+        <!-- Skills -->
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-0 col-md-1 col-lg-2"></div>
+            <div class="col-sm-12 col-md-10 col-lg-8">
+              <div class="breaker"></div>
+              <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
+                  <div class="navigation-pills-inside-skills">
+                    <ul
+                      class="nav nav-pills nav-justified"
+                      id="pills-tab-in-skills"
+                      role="tablist"
+                    >
+                      <li class="nav-item">
+                        <a
+                          class="nav-link active"
+                          id="pills-experience-tab"
+                          data-toggle="pill"
+                          href="#pills-experience"
+                          role="tab"
+                          aria-controls="pills-experience"
+                          aria-selected="false"
+                        >
+                          <i class="fas fa-code"></i>
+                          <div class="icon-to-heading"></div>
+                          <br />
+                          Experience
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          class="nav-link"
+                          id="pills-coding-tab"
+                          data-toggle="pill"
+                          href="#pills-coding"
+                          role="tab"
+                          aria-controls="pills-coding"
+                          aria-selected="true"
+                        >
+                          <i class="fas fa-code"></i>
+                          <div class="icon-to-heading"></div>
+                          <br />
+                          Coding
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          class="nav-link"
+                          id="pills-tools-tab"
+                          data-toggle="pill"
+                          href="#pills-tools"
+                          role="tab"
+                          aria-controls="pills-tools"
+                          aria-selected="false"
+                        >
+                          <i class="fas fa-language"></i>
+                          <div class="icon-to-heading"></div>
+                          <br />
+                          Tools
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-4"></div>
+              </div>
+
+              <div class="tab-content" id="pills-tabContentInner">
+                <div
+                  class="tab-pane fade show active"
+                  id="pills-experience"
+                  role="tabpanel"
+                  aria-labelledby="pills-experience-tab"
+                >
+                  <!-- Experience here -->
+                  <div class="skill-body">
+                    <div class="accordion" id="accordionExample">
+                      <div class="card">
+                        <div class="card-header" id="headingOne">
+                          <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-6">
+                                <a class="skill-title">
+                                  <button
+                                    class="btn btn-link collapsed skill-title"
+                                    type="button"
+                                    onclick="animateMe('java-progress-bar', 90)"
+                                    data-toggle="collapse"
+                                    data-target="#collapseOne"
+                                    title="Click to expand"
+                                    aria-expanded="true"
+                                    aria-controls="collapseOne"
+                                  >
+                                    <i class="fab fa-java"></i>
+                                    <div class="icon-to-heading"></div>
+                                    ServiceNow Developer Trainee
+                                  </button>
+                                </a>
+                                <p class="small skill-info">
+                                  Serviceberry Technologies Pvt. Ltd. - Mumbai,
+                                  India
+                                </p>
+                              </div>
+                              <div class="col-6 collapse-button">
+                                <p class="language-hello">January 2022 - July 2022
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          id="collapseOne"
+                          class="collapse"
+                          aria-labelledby="headingOne"
+                          data-parent="#accordionExample"
+                        >
+                          <div class="card-body">
+                            <div>
+                              <p class="skill-highlights">
+                                As a ServiceNow Developer Trainee, I played a
+                                pivotal role in implementing a cloud-based
+                                Platform-as-a-Service (PaaS) solution named
+                                ServiceNow. Leveraging advanced natural language
+                                understanding (NLU) and artificial intelligence,
+                                I seamlessly integrated an AI chatbot with
+                                GPT-2/3.5, enhancing user interactions and
+                                automating various processes. <br /><br>
+
+                                To optimize the virtual agent's performance and
+                                user experience, I designed and implemented a
+                                streamlined flow that encompassed prompt
+                                engineering, question answering, and intent
+                                classification. My technical proficiency allowed
+                                me to create clear and detailed documentation
+                                outlining the implementation processes, ensuring
+                                easy reference for the team. <br /><br>
+
+                                I effectively communicated daily progress
+                                through engaging PowerPoint presentations,
+                                showcasing my excellent communication skills and
+                                ability to present technical concepts in a
+                                compelling manner. <br />
+                                <br />
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <hr />
+
+                      <div class="card">
+                        <div class="card-header" id="headingOne">
+                          <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-6">
+                                <a class="skill-title">
+                                  <button
+                                    class="btn btn-link collapsed skill-title"
+                                    type="button"
+                                    onclick="animateMe('java-progress-bar', 90)"
+                                    data-toggle="collapse"
+                                    data-target="#collapseTwo"
+                                    title="Click to expand"
+                                    aria-expanded="true"
+                                    aria-controls="collapseTwo"
+                                  >
+                                    <i class="fab fa-java"></i>
+                                    <div class="icon-to-heading"></div>
+                                    Data Analyst Intern
+                                  </button>
+                                </a>
+                                <p class="small skill-info">
+                                  AI BI Street Pvt. Ltd.
+                                </p>
+                              </div>
+                              <div class="col-6 collapse-button">
+                                <p class="language-hello">February 2021 - June 2021</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          id="collapseTwo"
+                          class="collapse"
+                          aria-labelledby="headingOne"
+                          data-parent="#accordionExample"
+                        >
+                          <div class="card-body">
+                            <div>
+                              <p class="skill-highlights">
+                                During my tenure as a Data Analyst Intern, I collaborated closely with the team to build deep learning models using Pandas, Tensorflow, Keras, and Convolutional Neural Networks (CNNs). My work focused on recognizing and mitigating adversarial examples through the Transferability Prediction Difference method.<br><br>
+
+I conducted extensive training on large-scale image datasets, implementing data augmentation, regularization, and hyperparameter tuning techniques to optimize model performance. My advocacy for using MNIST and Cifar 10 datasets and subsequent validation with cross-functional teams resulted in achieving an impressive 91% accuracy on adversarial test cases.
+
+                                <br />
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <hr />
+
+                      <div class="card">
+                        <div class="card-header" id="headingOne">
+                          <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-6">
+                                <a class="skill-title">
+                                  <button
+                                    class="btn btn-link collapsed skill-title"
+                                    type="button"
+                                    onclick="animateMe('java-progress-bar', 90)"
+                                    data-toggle="collapse"
+                                    data-target="#collapseThree"
+                                    title="Click to expand"
+                                    aria-expanded="true"
+                                    aria-controls="collapseThree"
+                                  >
+                                    <i class="fab fa-java"></i>
+                                    <div class="icon-to-heading"></div>
+                                    Python Developer Intern
+                                  </button>
+                                </a>
+                                <p class="small skill-info">
+                                  AI BI Street Pvt. Ltd.
+                                </p>
+                              </div>
+                              <div class="col-6 collapse-button">
+                                <p class="language-hello">December 2019 - February 2020</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          id="collapseThree"
+                          class="collapse"
+                          aria-labelledby="headingOne"
+                          data-parent="#accordionExample"
+                        >
+                          <div class="card-body">
+                            <div>
+                              <p class="skill-highlights">
+                                As a Python Developer Intern, I researched and applied the Particle Swarm Optimization algorithm to optimize parameters influencing dam stability. Leveraging my expertise in software engineering and prototyping, I integrated four optimization statistical methodologies into a Python Django web interface to validate dam safety status.<br><br>
+
+My work resulted in the creation of a scalable software solution for dam safety analysis. I effectively communicated optimized solutions and metrics to non-technical stakeholders through engaging presentations.
+
+                                <br />
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <hr />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Coding Skills -->
+                <div
+                  class="tab-pane fade show"
+                  id="pills-coding"
+                  role="tabpanel"
+                  aria-labelledby="pills-coding-tab"
+                >
+                  <!-- Skills here -->
+                  <div class="skill-body">
+                    <div class="accordion" id="accordionExample">
+                      <!-- Java -->
+                      <div class="card">
+                        <div class="card-header" id="headingOne">
+                          <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-6">
+                                <a class="skill-title">
+                                  <button
+                                    class="btn btn-link collapsed skill-title"
+                                    type="button"
+                                    onclick="animateMe('java-progress-bar', 90)"
+                                    data-toggle="collapse"
+                                    data-target="#collapseOne"
+                                    title="Click to expand"
+                                    aria-expanded="true"
+                                    aria-controls="collapseOne"
+                                  >
+                                    <i class="fab fa-java"></i>
+                                    <div class="icon-to-heading"></div>
+                                    Java
+                                  </button>
+                                </a>
+                                <p class="small skill-info">
+                                  A concurrent, class-based, statically typed
+                                  object-oriented language.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          id="collapseOne"
+                          class="collapse"
+                          aria-labelledby="headingOne"
+                          data-parent="#accordionExample"
+                        >
+                          <div class="card-body">
+                            <div class="proficiency-bar-and-text">
+                              <div class="progress">
+                                <div
+                                  class="progress-bar proficiency"
+                                  role="progressbar"
+                                  id="java-progress-bar"
+                                ></div>
+                              </div>
+                              <p class="small font-weight-bold font-italic">
+                                Professional
+                              </p>
+                            </div>
+                            <div>
+                              <p class="skill-highlights">
+                                Well-versed in <b>core Java</b> concepts <br />
+                                Can implement
+                                <b>data structures and algorithms</b>
+                                efficiently<br />
+                                Used <b>OOP concepts</b> in every project I make
+                                in Java <br />
+                                Have also worked with <b>Java EE</b>,
+                                <b>Java Swing</b>, <b>Java Applets</b> and
+                                <b>Java FX</b> <br />
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <hr />
+
+                      <!-- Python -->
+                      <div class="card">
+                        <div class="card-header" id="headingTwo">
+                          <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-6">
+                                <a class="skill-title">
+                                  <button
+                                    class="btn btn-link collapsed skill-title"
+                                    type="button"
+                                    onclick="animateMe('python-progress-bar', 50)"
+                                    data-toggle="collapse"
+                                    data-target="#collapseTwo"
+                                    title="Click to expand"
+                                    aria-expanded="false"
+                                    aria-controls="collapseTwo"
+                                  >
+                                    <i class="fab fa-python"></i>
+                                    <div class="icon-to-heading"></div>
+                                    Python
+                                  </button>
+                                </a>
+                                <p class="small skill-info">
+                                  A dynamic language emphasizing readability
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          id="collapseTwo"
+                          class="collapse"
+                          aria-labelledby="headingTwo"
+                          data-parent="#accordionExample"
+                        >
+                          <div class="card-body">
+                            <div class="proficiency-bar-and-text">
+                              <div class="progress">
+                                <div
+                                  class="progress-bar proficiency"
+                                  role="progressbar"
+                                  id="python-progress-bar"
+                                ></div>
+                              </div>
+                              <p class="small font-weight-bold font-italic">
+                                Basic
+                              </p>
+                            </div>
+                            <div>
+                              <p class="skill-highlights">
+                                Basic concepts of the language <br />
+                                Worked with <b>Flask</b>, <b>plotly</b>,
+                                <b>matplotlib</b>, etc<br />
+                                Made a fully functional website using HTML, CSS,
+                                Javascript with
+                                <b>Flask backend</b><br />
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <hr />
+
+                      <!-- C/C++ -->
+                      <div class="card">
+                        <div class="card-header" id="headingThree">
+                          <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-6">
+                                <a class="skill-title">
+                                  <button
+                                    class="btn btn-link collapsed skill-title"
+                                    type="button"
+                                    onclick="animateMe('c-progress-bar', 70)"
+                                    data-toggle="collapse"
+                                    data-target="#collapseThree"
+                                    title="Click to expand"
+                                    aria-expanded="false"
+                                    aria-controls="collapseThree"
+                                  >
+                                    <i class="fab fa-cuttlefish"></i>
+                                    <div class="icon-to-heading"></div>
+                                    C / C++
+                                  </button>
+                                </a>
+                                <p class="small skill-info">
+                                  A general purpose system programming language.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          id="collapseThree"
+                          class="collapse"
+                          aria-labelledby="headingThree"
+                          data-parent="#accordionExample"
+                        >
+                          <div class="card-body">
+                            <div class="proficiency-bar-and-text">
+                              <div class="progress">
+                                <div
+                                  class="progress-bar proficiency"
+                                  role="progressbar"
+                                  id="c-progress-bar"
+                                ></div>
+                              </div>
+                              <p class="small font-weight-bold font-italic">
+                                Basic
+                              </p>
+                            </div>
+                            <div>
+                              <p class="skill-highlights">
+                                Well versed in concepts of the language <br />
+                                <b>Competitive Coding</b><br />
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <hr />
+
+                      <!-- HTML, CSS, JS -->
+                      <div class="card">
+                        <div class="card-header" id="headingFour">
+                          <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-6">
+                                <a class="skill-title">
+                                  <button
+                                    class="btn btn-link collapsed skill-title"
+                                    type="button"
+                                    onclick="animateMe('web-progress-bar', 80)"
+                                    data-toggle="collapse"
+                                    data-target="#collapseFour"
+                                    title="Click to expand"
+                                    aria-expanded="false"
+                                    aria-controls="collapseFour"
+                                  >
+                                    <i class="fas fa-file-code"></i>
+                                    <div class="icon-to-heading"></div>
+                                    HTML, CSS and JavaScript
+                                  </button>
+                                </a>
+                                <p class="small skill-info">
+                                  The languages that make up the web.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          id="collapseFour"
+                          class="collapse"
+                          aria-labelledby="headingFour"
+                          data-parent="#accordionExample"
+                        >
+                          <div class="card-body">
+                            <div class="proficiency-bar-and-text">
+                              <div class="progress">
+                                <div
+                                  class="progress-bar proficiency"
+                                  role="progressbar"
+                                  id="web-progress-bar"
+                                ></div>
+                              </div>
+                              <p class="small font-weight-bold font-italic">
+                                Intermediate
+                              </p>
+                            </div>
+                            <div>
+                              <p class="skill-highlights">
+                                Made many websites using
+                                <b>HTML, CSS, Js</b> with Node, PHP and Flask
+                                backends <br />
+                                Well versed in <b>Bootstrap</b> <br />
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <hr />
+
+                      <!-- PHP -->
+                      <div class="card">
+                        <div class="card-header" id="headingFive">
+                          <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-6">
+                                <a class="skill-title">
+                                  <button
+                                    class="btn btn-link collapsed skill-title"
+                                    type="button"
+                                    onclick="animateMe('php-progress-bar', 80)"
+                                    data-toggle="collapse"
+                                    data-target="#collapseFive"
+                                    title="Click to expand"
+                                    aria-expanded="false"
+                                    aria-controls="collapseFive"
+                                  >
+                                    <i class="fab fa-php"></i>
+                                    <div class="icon-to-heading"></div>
+                                    PHP
+                                  </button>
+                                </a>
+                                <p class="small skill-info">
+                                  A popular general-purpose scripting language.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          id="collapseFive"
+                          class="collapse"
+                          aria-labelledby="headingFive"
+                          data-parent="#accordionExample"
+                        >
+                          <div class="card-body">
+                            <div class="proficiency-bar-and-text">
+                              <div class="progress">
+                                <div
+                                  class="progress-bar proficiency"
+                                  role="progressbar"
+                                  id="php-progress-bar"
+                                ></div>
+                              </div>
+                              <p class="small font-weight-bold font-italic">
+                                Intermediate
+                              </p>
+                            </div>
+                            <div>
+                              <p class="skill-highlights">
+                                Backend knowledge of using a PHP Server <br />
+                                Connected the fronted to a MySQL database using
+                                a PHP Backend
+                                <br />
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <hr />
+
+                      <!-- SQL -->
+                      <div class="card">
+                        <div class="card-header" id="headingSix">
+                          <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-6">
+                                <a class="skill-title">
+                                  <button
+                                    class="btn btn-link collapsed skill-title"
+                                    type="button"
+                                    onclick="animateMe('sql-progress-bar', 80)"
+                                    data-toggle="collapse"
+                                    data-target="#collapseSix"
+                                    title="Click to expand"
+                                    aria-expanded="false"
+                                    aria-controls="collapseSix"
+                                  >
+                                    <i class="fas fa-database"></i>
+                                    <div class="icon-to-heading"></div>
+                                    SQL
+                                  </button>
+                                </a>
+                                <p class="small skill-info">
+                                  Language of the relational databases.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          id="collapseSix"
+                          class="collapse"
+                          aria-labelledby="headingSix"
+                          data-parent="#accordionExample"
+                        >
+                          <div class="card-body">
+                            <div class="proficiency-bar-and-text">
+                              <div class="progress">
+                                <div
+                                  class="progress-bar proficiency"
+                                  role="progressbar"
+                                  id="sql-progress-bar"
+                                ></div>
+                              </div>
+                              <p class="small font-weight-bold font-italic">
+                                Basic
+                              </p>
+                            </div>
+                            <div>
+                              <p class="skill-highlights">
+                                Worked with many relational databases -
+                                <b>MySQL</b>, <b>SQLPlus</b> and <b>SQLite</b>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Skills here -->
+                </div>
+
+                <!-- Tools -->
+                <div
+                  class="tab-pane fade"
+                  id="pills-tools"
+                  role="tabpanel"
+                  aria-labelledby="pills-tools-tab"
+                >
+                  <!-- Languages Here -->
+                  <div class="skill-body">
+                    <div class="accordion" id="accordionExample1">
+                      <!-- English -->
+                      <div class="card">
+                        <div class="card-header" id="headingOne1">
+                          <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-6">
+                                <a class="skill-title"> GitHub </a>
+                                <p class="small skill-info"></p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <hr />
+
+                      <!-- Hindi -->
+                      <div class="card">
+                        <div class="card-header" id="headingTwo1">
+                          <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-6">
+                                <a class="skill-title"> PowerBi </a>
+                                <p class="small skill-info"></p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <hr />
+
+                      <!-- German -->
+                      <div class="card">
+                        <div class="card-header" id="headingThree1">
+                          <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-6">
+                                <a class="skill-title"> Jupyter Notbook </a>
+                                <p class="small skill-info">
+                                  
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <hr />
+
+                      <!-- German -->
+                      <div class="card">
+                        <div class="card-header" id="headingThree1">
+                          <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-6">
+                                <a class="skill-title"> Google Colab </a>
+                                <p class="small skill-info">
+                                  
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <hr />
+
+                      <!-- German -->
+                      <div class="card">
+                        <div class="card-header" id="headingThree1">
+                          <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-6">
+                                <a class="skill-title"> ServiceNow </a>
+                                <p class="small skill-info">
+                                  
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-0 col-md-1 col-lg-2"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projects -->
+      <div
+        class="tab-pane fade"
+        id="pills-projects"
+        role="tabpanel"
+        aria-labelledby="pills-Projects-tab"
+      >
+        <div class="breaker"></div>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-0 col-md-1 col-lg-2"></div>
+            <div class="col-sm-12 col-md-10 col-lg-8">
+              <div class="breaker"></div>
+
+              <!-- Visit my Github -->
+              <table id="github-table">
+                <tr
+                  title="Visit my Github !!"
+                  class="social-row"
+                  onmouseover="onMouseOver('github')"
+                  onmouseout="onMouseOut('github')"
+                >
+                  <td class="social">
+                    <a
+                      class="social-icon icon-to-heading"
+                      href="https://github.com/shardulchavan"
+                      target="_blank"
+                    >
+                      <i class="fab fa-github" id="github"></i
+                    ></a>
+                  </td>
+                  <td class="social-link">
+                    <div class="social-link-anchor-div">
+                      <a
+                        class="social-link-anchor"
+                        id="github-link"
+                        href="https://github.com/shardulchavan"
+                      >
+                        shardulchavan
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+
+              <div class="skill-body" id="projects">
+                <div class="accordion" id="github-projects">
+                  <!-- Movie Recommendation Website -->
+                  <div class="card" id="myIMDB">
+                    <div class="card-header" id="githubThree">
+                      <div class="container-fluid">
+                        <div class="row">
+                          <div class="col-6 no-margin no-margin">
+                            <a class="skill-title">
+                              <button
+                                class="btn btn-link collapsed skill-title"
+                                type="button"
+                                data-toggle="collapse"
+                                data-target="#project-collapseThree"
+                                title="Click to expand"
+                                aria-expanded="true"
+                                aria-controls="project-collapseThree"
+                              >
+                              Exploratory Data Analysis on Time Series Data
+                              </button>
+                            </a>
+                            <p class="small skill-info">
+                              
+                            </p>
+                          </div>
+                          <div class="col-6 code-icons">
+                            <i class="fab fa-python"></i>
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      id="project-collapseThree"
+                      class="collapse"
+                      aria-labelledby="githubThree"
+                      data-parent="#github-projects"
+                    >
+                      <div class="card-body">
+                        <p class="skill-highlights">
+                            In this project, I conducted a comprehensive Exploratory Data Analysis (EDA) on time series data, delving into the world of temporal patterns and relationships. Through insightful visualization techniques, including Autocorrelation Function (ACF) and Partial Autocorrelation Function (PACF) plots, I deciphered the underlying patterns and trends within the data. Building upon the EDA insights, I developed robust time series forecasting models, specifically employing ARIMA (AutoRegressive Integrated Moving Average) and SARIMA (Seasonal AutoRegressive Integrated Moving Average). This project exemplifies my passion for data analysis and time series forecasting. By skillfully integrating statistical techniques and cutting-edge methodologies, I successfully harnessed the power of data to predict future trends and outcomes accurately.
+                            <br />
+                          <a
+                            href="https://github.com/shardulchavan/Time_Series_Forecasting"
+                            target="_blank"
+                          >
+                            <i class="fab fa-github"></i>
+                            Link to Github Repo
+                          </a>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <hr />
+
+                  <!-- Financier -->
+                  <div class="card" id="financier">
+                    <div class="card-header" id="githubSeven">
+                      <div class="container-fluid">
+                        <div class="row">
+                          <div class="col-6 no-margin">
+                            <a class="skill-title">
+                              <button
+                                class="btn btn-link collapsed skill-title"
+                                type="button"
+                                data-toggle="collapse"
+                                data-target="#project-collapseSeven"
+                                title="Click to expand"
+                                aria-expanded="true"
+                                aria-controls="project-collapseSeven"
+                              >
+                              Causal Analysis for Marketing Project
+                              </button>
+                            </a>
+                            <p class="small skill-info">
+                              
+                            </p>
+                          </div>
+                          <div class="col-6 code-icons">
+                            <i class="fab fa-python"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      id="project-collapseSeven"
+                      class="collapse"
+                      aria-labelledby="githubSeven"
+                      data-parent="#github-projects"
+                    >
+                      <div class="card-body">
+                        <p class="skill-highlights">
+                            In my Causal Analysis for Marketing Project, I harnessed advanced statistical techniques to uncover causal relationships in marketing variables and customer behavior. Leveraging a Bank Marketing dataset, I meticulously preprocessed and engineered features, unveiling the real impact of factors on customer subscriptions. The introduction of a "Contact" variable revealed a 2.8% increase in subscription likelihood upon being contacted, strongly substantiated by statistical tests. This project underscores the power of causal analysis for data-driven marketing strategies, considering complexities like confounding variables and offering actionable insights.
+
+                          <br />
+                          <a
+                            href="https://github.com/shardulchavan/Causal-Analysis-for-Marketing-Project"
+                            target="_blank"
+                          >
+                            <i class="fab fa-github"></i>
+                            Link to Github Repo
+                          </a>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <hr />
+
+                  <!-- Financier -->
+                  <div class="card" id="financier">
+                    <div class="card-header" id="githubSeven">
+                      <div class="container-fluid">
+                        <div class="row">
+                          <div class="col-6 no-margin">
+                            <a class="skill-title">
+                              <button
+                                class="btn btn-link collapsed skill-title"
+                                type="button"
+                                data-toggle="collapse"
+                                data-target="#project-collapseFour"
+                                title="Click to expand"
+                                aria-expanded="true"
+                                aria-controls="project-collapseFour"
+                              >
+                              Drowning Accident Detection using OpenCV
+                              </button>
+                            </a>
+                            <p class="small skill-info">
+                              
+                            </p>
+                          </div>
+                          <div class="col-6 code-icons">
+                            <i class="fab fa-python"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      id="project-collapseFour"
+                      class="collapse"
+                      aria-labelledby="githubSeven"
+                      data-parent="#github-projects"
+                    >
+                      <div class="card-body">
+                        <p class="skill-highlights">
+                            In this project, I led the deployment of advanced deep learning models, including Time-Series analysis and ConvLSTM, to engineer a highly effective Video Classification and Action Recognition system aimed at identifying drowning accidents. This project exemplifies my passion for harnessing the power of deep learning techniques, particularly ConvLSTM and Time-Series analysis, to develop robust and efficient solutions for critical applications such as accident prevention and human safety. The successful deployment of a Long-term recurrent convolutional network (LRCN) showcases the potential of AI-driven systems in addressing real-world challenges.
+
+                          <br />
+                          <a
+                            href="https://github.com/shardulchavan/Financier"
+                            target="_blank"
+                          >
+                            <i class="fab fa-github"></i>
+                            Link to Github Repo
+                          </a>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <hr />
+                 
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-0 col-md-1 col-lg-2"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div
+        class="tab-pane fade"
+        id="pills-contact"
+        role="tabpanel"
+        aria-labelledby="pills-contact-tab"
+      >
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-0 col-md-1 col-lg-2"></div>
+            <div class="col-sm-12 col-md-10 col-lg-8">
+              <div class="breaker" style="margin-top: 3rem"></div>
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-sm-1 col-md-2 col-lg-3"></div>
+                  <div class="col-sm-10 col-md-8 col-lg-6">
+                    <div class="contact-platform">
+                      <div class="container-fluid" id="column-1-contact">
+                        <div class="row">
+                          <div class="col-5">
+                            <table>
+                              <!-- Instagram -->
+                              <tr
+                                title="Online galleria"
+                                class="social-row"
+                                onmouseover="onMouseOver('instagram')"
+                                onmouseout="onMouseOut('instagram')"
+                              >
+                                <td class="social">
+                                  <a
+                                    class="social-icon"
+                                    href="https://www.instagram.com/chavan.shardul/"
+                                    target="_blank"
+                                  >
+                                    <i
+                                      class="fab fa-instagram"
+                                      id="instagram"
+                                    ></i>
+                                  </a>
+                                </td>
+                                <td class="social-link">
+                                  <div class="social-link-anchor-div">
+                                    <a
+                                      class="social-link-anchor"
+                                      id="instagram-link"
+                                      href="https://www.instagram.com/chavan.shardul/"
+                                      target="_blank"
+                                    >
+                                      @chavan.shardul
+                                    </a>
+                                  </div>
+                                </td>
+                              </tr>
+
+                              <!-- LinkedIn -->
+                              <tr
+                                title="Professional Space"
+                                class="social-row"
+                                onmouseover="onMouseOver('linkedin')"
+                                onmouseout="onMouseOut('linkedin')"
+                              >
+                                <td class="social">
+                                  <a
+                                    class="social-icon"
+                                    href="https://www.linkedin.com/in/shardulchavan36/"
+                                    target="_blank"
+                                  >
+                                    <i
+                                      class="fab fa-linkedin"
+                                      id="linkedin"
+                                    ></i>
+                                  </a>
+                                </td>
+                                <td class="social-link">
+                                  <div class="social-link-anchor-div">
+                                    <a
+                                      class="social-link-anchor"
+                                      id="linkedin-link"
+                                      href="https://www.linkedin.com/in/shardulchavan36/"
+                                      target="_blank"
+                                    >
+                                      Shardul Chavan<br />
+                                      (shardulchavan36)
+                                    </a>
+                                  </div>
+                                </td>
+                              </tr>
+                            </table>
+                          </div>
+                          <div class="col-2"></div>
+                          <div class="col-5">
+                            <table>
+                              <!-- Email -->
+                              <tr
+                                title="Mail Me!!"
+                                class="social-row"
+                                onmouseover="onMouseOver('gmail')"
+                                onmouseout="onMouseOut('gmail')"
+                              >
+                                <td class="social">
+                                  <a
+                                    class="social-icon"
+                                    href="mailto:chavan.shardul360@gmail.com"
+                                    target="_blank"
+                                  >
+                                    <i class="far fa-envelope" id="gmail"></i
+                                  ></a>
+                                </td>
+                                <td class="social-link">
+                                  <div class="social-link-anchor-div">
+                                    <a
+                                      class="social-link-anchor"
+                                      id="gmail-link"
+                                      href="mailto:chavan.shardul360@gmail.com"
+                                    >
+                                      chavan.shardul360@gmail.com
+                                    </a>
+                                  </div>
+                                </td>
+                              </tr>
+                              <!-- Medium -->
+                              <tr
+                                title="Articles"
+                                class="social-row"
+                                onmouseover="onMouseOver('medium')"
+                                onmouseout="onMouseOut('medium')"
+                              >
+                                <td class="social">
+                                  <a
+                                    class="social-icon"
+                                    href="https://medium.com/@chavan.shardul360"
+                                    target="_blank"
+                                  >
+                                    <i class="fab fa-medium" id="medium"></i>
+                                  </a>
+                                </td>
+                                <td class="social-link">
+                                  <div class="social-link-anchor-div">
+                                    <a
+                                      class="social-link-anchor"
+                                      id="medium-link"
+                                      href="https://medium.com/@chavan.shardul360"
+                                      target="_blank"
+                                    >
+                                      Shardul Chavan<br />(@chavan.shardul360)
+                                    </a>
+                                  </div>
+                                </td>
+                              </tr>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-1 col-md-2 col-lg-3"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-0 col-md-1 col-lg-2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <div class="text-center" id="footer">
+      <div class="footer-breaker"></div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-0 col-md-1 col-lg-2"></div>
+          <div
+            class="col-sm-12 col-md-10 col-lg-8 font-weight-bold footer-display"
+          >
+            Shardul Chavan &#169;
+            <a id="date-and-time">April, 2020</a>
+          </div>
+          <div class="col-sm-0 col-md-1 col-lg-2"></div>
+        </div>
+      </div>
+      <div class="footer-breaker"></div>
+    </div>
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Template -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-0 col-md-1 col-lg-2"></div>
+        <div class="col-sm-12 col-md-10 col-lg-8"></div>
+        <div class="col-sm-0 col-md-1 col-lg-2"></div>
+      </div>
+    </div>
+
+    <script>
+      //Get the button:
+      mybutton = document.getElementById("myBtn");
+
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function () {
+        scrollFunction();
+      };
+
+      function scrollFunction() {
+        if (
+          document.body.scrollTop > 130 ||
+          document.documentElement.scrollTop > 130
+        ) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      }
+
+      function setDate() {
+        const date = new Date();
+        const month = date.getMonth();
+        const year = date.getFullYear();
+        const monthArray = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ];
+        document.getElementById("date-and-time").innerHTML =
+          monthArray[month] + ", " + year;
+      }
+
+      function onMouseOver(id) {
+        let iconColor = "";
+        let textLink = "";
+        const icon = document.getElementById(id);
+        const link = document.getElementById(id + "-link");
+        switch (id) {
+          case "facebook":
+            iconColor = "#3b5998";
+            textLink = "#007aff";
+            break;
+          case "instagram":
+            iconColor = "#bc2a8d";
+            textLink = "#007aff";
+            break;
+          case "twitter":
+            iconColor = "#00aced";
+            textLink = "#007aff";
+            break;
+          case "gmail":
+            iconColor = "#D44638";
+            textLink = "#007aff";
+            break;
+          case "quora":
+            iconColor = "#b52b28";
+            textLink = "#007aff";
+            break;
+          case "linkedin":
+            iconColor = "#0077b3";
+            textLink = "#007aff";
+            break;
+          case "wordpress":
+            iconColor = "#207297";
+            textLink = "#007aff";
+            break;
+          case "medium":
+            iconColor = "#11100e";
+            textLink = "#007aff";
+            break;
+          case "github":
+            iconColor = "#000";
+            textLink = "#007aff";
+            break;
+        }
+        icon.style.color = iconColor;
+        link.style.color = textLink;
+      }
+
+      function onMouseOut(id) {
+        const icon = document.getElementById(id);
+        const link = document.getElementById(id + "-link");
+        icon.style.color = "#6b6e73";
+        link.style.color = "#6b6e73";
+      }
+
+      setDate();
+    </script>
+  </body>
+</html>
