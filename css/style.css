@@ -260,7 +260,7 @@ iframe#resume {
 
 #mySidenav a {
     position: relative;
-    left: -90px;
+    left: -230px;
     transition: 0.3s;
     padding: 15px;
     width: auto;
@@ -269,6 +269,21 @@ iframe#resume {
     color: white;
     background: #007aff;
     border-radius: 0 5px 5px 0;
+    overflow:hidden
+}
+
+#mySidenav1 a {
+    position: relative;
+    left: -265px;
+    transition: 0.3s;
+    padding: 15px;
+    width: auto;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    background: #007aff;
+    border-radius: 0 5px 5px 0;
+    overflow:hidden
 }
 
 #mySidenav a:hover {
@@ -276,6 +291,10 @@ iframe#resume {
     width: auto;
 }
 
+#mySidenav1 a:hover {
+    left: 0;
+    width: auto;
+}
 .about {
     top: 20px;
     line-height: 1.8;
