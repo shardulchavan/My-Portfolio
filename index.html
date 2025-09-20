@@ -1,1601 +1,823 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="author" content="Nikhil Anand" />
-    <meta name="description" content="Portfolio Website" />
-    <title>Shardul Chavan</title>
-    <link rel="icon" href="icons/myIcon.jpg" />
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://kit.fontawesome.com/6433fc8980.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-  </head>
-  <body>
-    <script>
-      // Animate Progress bar
-      let i = 0;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shardul Chavan - AWS Certified Data Engineer | Portfolio showcasing data engineering, cloud architecture, and machine learning projects">
+    <title>Shardul Chavan | Data Engineer Portfolio</title>
+    
+    <!-- Modern CSS Framework -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --dark-bg: #0f172a;
+            --light-bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --accent-color: #10b981;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+        }
 
-      function setTitle(progressBar) {
-        progressBar.innerHTML = "Proficiency";
-      }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-      function animateMe(progressBarId, progress) {
-        let progressBar = document.getElementById(progressBarId);
-        let width = 1;
-        console.log(progressBar.getAttribute("style"));
-        console.log(typeof progressBar.getAttribute("style"));
-        if (progressBar.getAttribute("style") === null) {
-          let id = setInterval(frame, 20);
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-          function frame() {
-            if (width >= progress) {
-              clearInterval(id);
-              setTitle(progressBar);
-            } else {
-              width++;
-              // progressBar.style.width = width + "%";
-              progressBar.setAttribute("style", "width: " + width + "%");
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-scrolled {
+            padding: 0.5rem 0;
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-link {
+            color: var(--text-primary) !important;
+            font-weight: 500;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero .lead {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease 0.2s;
+            animation-fill-mode: both;
+        }
+
+        .hero .badge {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            animation: fadeInUp 0.8s ease 0.4s;
+            animation-fill-mode: both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
-          }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-      }
-    </script>
 
-    <!-- Navbar -->
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-0 col-md-1 col-lg-2"></div>
-        <div class="col-sm-12 col-md-10 col-lg-8 justify-content-center">
-          <nav class="navbar nav justify-content-center">
-            <a class="navbar-brand" href="index.html">Shardul Chavan</a>
-          </nav>
-          <div class="row">
-            <div class="col-sm-0 col-md-1 col-lg-1"></div>
-            <div class="col-sm-12 col-md-10 col-lg-10">
-              <div class="navigation-pills">
-                <ul
-                  class="nav nav-pills nav-justified"
-                  id="pills-tab"
-                  role="tablist"
-                >
-                  <li class="nav-item">
-                    <a
-                      class="nav-link active"
-                      id="pills-home-tab"
-                      data-toggle="pill"
-                      href="#pills-home"
-                      role="tab"
-                      aria-controls="pills-home"
-                      aria-selected="true"
-                    >
-                      <i class="fas fa-house-user"></i>
-                      <div class="icon-to-heading"></div>
-                      <br />
-                      Home
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link"
-                      id="pills-Skills-tab"
-                      data-toggle="pill"
-                      href="#pills-skills"
-                      role="tab"
-                      aria-controls="pills-skills"
-                      aria-selected="false"
-                    >
-                      <i class="fas fa-robot"></i>
-                      <div class="icon-to-heading"></div>
-                      <br />
-                  Experience & Skills
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link"
-                      id="pills-Projects-tab"
-                      data-toggle="pill"
-                      href="#pills-projects"
-                      role="tab"
-                      aria-controls="pills-projects"
-                      aria-selected="false"
-                    >
-                      <i class="fab fa-github"></i>
-                      <div class="icon-to-heading"></div>
-                      <br />
-                      Projects
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link"
-                      id="pills-contact-tab"
-                      data-toggle="pill"
-                      href="#pills-contact"
-                      role="tab"
-                      aria-controls="pills-contact"
-                      aria-selected="false"
-                    >
-                      <i class="far fa-id-card"></i>
-                      <div class="icon-to-heading"></div>
-                      <br />
-                      Contact
-                    </a>
-                  </li>
+        /* Section Styling */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+        }
+
+        /* Experience Cards */
+        .experience-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .experience-card:hover::before {
+            left: 100%;
+        }
+
+        .company-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .role-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .date-location {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .achievement {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.8;
+        }
+
+        .achievement::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .skill-category h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: var(--light-bg);
+            color: var(--text-primary);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Projects Section */
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .project-header h3 {
+            margin: 0;
+            font-size: 1.3rem;
+        }
+
+        .project-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tech-stack {
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .tech-badge {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary-color);
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 0.4rem;
+            margin-bottom: 0.4rem;
+            font-family: 'Fira Code', monospace;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .contact-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-link:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .contact-link i {
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .lead {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader.hide {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-inner {
+            width: 60px;
+            height: 60px;
+            border: 3px solid var(--border-color);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-inner"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg" id="navbar">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#" style="color: var(--primary-color);">
+                <i class="fas fa-code"></i> Shardul Chavan
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
-              </div>
             </div>
-            <div class="col-sm-0 col-md-1 col-lg-1"></div>
-          </div>
         </div>
-        <div class="col-sm-0 col-md-1 col-lg-2"></div>
-      </div>
-    </div>
+    </nav>
 
-    <!-- Resume -->
-    <div id="mySidenav" class="sidenav">
-      <a href="resume\Shardul Resume.pdf" target="_blank">
-        Data Science Resume
-        <div class="icon-to-heading"></div>
-        <div class="icon-to-heading"></div>
-        <div class="icon-to-heading"></div>
-        <div class="icon-to-heading"></div>
-        <i class="fas fa-file-download"></i>
-      </a>
-    </div>
-      </br></br> </br></br>
-    <div id="mySidenav1" class="sidenav">
-      <a href="resume\Shardul-Resume.pdf" target="_blank">
-        Data Engineering Resume
-        <div class="icon-to-heading"></div>
-        <div class="icon-to-heading"></div>
-        <div class="icon-to-heading"></div>
-        <div class="icon-to-heading"></div>
-        <i class="fas fa-file-download"></i>
-      </a>
-    </div>
-
-    <div class="tab-content" id="pills-tabContent">
-      <!-- Home -->
-      <div
-        class="tab-pane fade show active"
-        id="pills-home"
-        role="tabpanel"
-        aria-labelledby="pills-home-tab"
-      >
-        <!-- Jumbotron Text -->
-        <div class="jumbotron">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-sm-0 col-md-1 col-lg-2"></div>
-              <div class="col-sm-12 col-md-10 col-lg-8">
-                <div class="row">
-                  <div class="col-4">
-                    <div class="box">
-                      <img
-                        class="profile"
-                        src="img/profile-pic-1.png"
-                        alt="my picture here"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-8">
-                    <p class="title-body">
-                      <span class="well-hello-there"
-                        >Well, Hi there ! 👋🏻</span
-                      >
-                      <br />
-                    </p>
-                    <p class="title-body">
-                      I'm 
-                      <span id="nikhil-anand-jumbotron">Shardul Chavan 👋 </span>
-                      <br />
-                      <u class="dashed-hello">
-                        👨‍💻 Data Science Aspirant & Data Engineer Enthusiast 📊
-                      </u><br /><br />
-                    </p>
-                    <blockquote class="blockquote text-left font-italic">
-                      <p class="mb-0">
-                        🔍 Currently seeking opportunities in data engineering and data science to expand my expertise and contribute to data infrastructure and architecture.
-                      </p>
-                      <footer class="blockquote-footer small font-italic">
-                        my favourite 2023 joke
-                      </footer>
-                    </blockquote>
-                  </div>
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Shardul Chavan</h1>
+                <p class="lead">AWS Certified Data Engineer Associate</p>
+                <div class="badges mb-4">
+                    <span class="badge">Data Engineering</span>
+                    <span class="badge">Cloud Architecture</span>
+                    <span class="badge">Machine Learning</span>
+                    <span class="badge">ETL Pipelines</span>
                 </div>
-              </div>
-              <div class="col-sm-0 col-md-1 col-lg-2"></div>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-light btn-lg me-3">
+                        <i class="fas fa-envelope"></i> Get In Touch
+                    </a>
+                    <a href="https://github.com/shardulchavan" target="_blank" class="btn btn-outline-light btn-lg">
+                        <i class="fab fa-github"></i> View GitHub
+                    </a>
+                </div>
             </div>
-          </div>
         </div>
+    </section>
 
-        <!-- About Content -->
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-sm-0 col-md-1 col-lg-2"></div>
-            <div class="col-sm-12 col-md-10 col-lg-8">
-              <p class="display-6" style="font-weight: bold">
-                <u>About Me</u>
-              </p>
-              <p class="about">
-                I am a data-driven professional with expertise in both Data Science and Data Engineering, dedicated to transforming complex datasets into actionable insights and building robust data infrastructure. With a solid foundation in Python, SQL, and cloud platforms like AWS and GCP, I excel in designing and implementing data pipelines, deploying machine learning models, and leveraging big data tools to enhance decision-making processes. 
-                My experience spans across developing predictive models, optimizing ETL workflows, and utilizing advanced analytics techniques to drive measurable business improvements.
-              
-                In my roles, I have tackled diverse projects, from AI-driven applications and NLP systems to data warehousing and business intelligence solutions. I am passionate about exploring new technologies and applying data science methodologies to solve intricate business challenges. I thrive in collaborative, innovative environments and am always eager to contribute my skills to roles that involve both <u class="dashed-hello">Data Science and Data Engineering</u>, driving value through data and creating scalable, impactful solutions. Let's dive in!
-              </p>
-              
-            </div>
-            <div class="col-sm-0 col-md-1 col-lg-2"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Skills -->
-      <div
-        class="tab-pane fade"
-        id="pills-skills"
-        role="tabpanel"
-        aria-labelledby="pills-Skills-tab"
-      >
-        <!-- Skills -->
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-sm-0 col-md-1 col-lg-2"></div>
-            <div class="col-sm-12 col-md-10 col-lg-8">
-              <div class="breaker"></div>
-              <div class="row">
-                <div class="col-4"></div>
-                <div class="col-4">
-                  <div class="navigation-pills-inside-skills">
-                    <ul
-                      class="nav nav-pills nav-justified"
-                      id="pills-tab-in-skills"
-                      role="tablist"
-                    >
-                      <li class="nav-item">
-                        <a
-                          class="nav-link active"
-                          id="pills-experience-tab"
-                          data-toggle="pill"
-                          href="#pills-experience"
-                          role="tab"
-                          aria-controls="pills-experience"
-                          aria-selected="false"
-                        >
-                          <i class="fas fa-code"></i>
-                          <div class="icon-to-heading"></div>
-                          <br />
-                          Experience
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          class="nav-link"
-                          id="pills-coding-tab"
-                          data-toggle="pill"
-                          href="#pills-coding"
-                          role="tab"
-                          aria-controls="pills-coding"
-                          aria-selected="true"
-                        >
-                          <i class="fas fa-code"></i>
-                          <div class="icon-to-heading"></div>
-                          <br />
-                          Coding
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          class="nav-link"
-                          id="pills-tools-tab"
-                          data-toggle="pill"
-                          href="#pills-tools"
-                          role="tab"
-                          aria-controls="pills-tools"
-                          aria-selected="false"
-                        >
-                          <i class="fas fa-language"></i>
-                          <div class="icon-to-heading"></div>
-                          <br />
-                          Tools
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
+    <!-- Experience Section -->
+    <section id="experience" class="bg-white">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            
+            <div class="experience-card">
+                <div class="company-name">Crewasis, Remote</div>
+                <div class="role-title">Data Scientist Intern</div>
+                <div class="date-location">
+                    <i class="far fa-calendar"></i> Jan 2025 - Jun 2025 | <i class="fas fa-map-marker-alt"></i> Remote
                 </div>
-                <div class="col-4"></div>
-              </div>
-
-              <div class="tab-content" id="pills-tabContentInner">
-                <div
-                  class="tab-pane fade show active"
-                  id="pills-experience"
-                  role="tabpanel"
-                  aria-labelledby="pills-experience-tab"
-                >
-                  <!-- Experience here -->
-                  <div class="skill-body">
-                    <div class="accordion" id="accordionExample">
-
-                      <div class="card">
-                        <div class="card-header" id="headingOne">
-                          <div class="container-fluid">
-                            <div class="row">
-                              <div class="col-6">
-                                <a class="skill-title">
-                                  <button
-                                    class="btn btn-link collapsed skill-title"
-                                    type="button"
-                                    onclick="animateMe('java-progress-bar', 90)"
-                                    data-toggle="collapse"
-                                    data-target="#collapseThree"
-                                    title="Click to expand"
-                                    aria-expanded="true"
-                                    aria-controls="collapseThree"
-                                  >
-                                    <i class="fab fa-python"></i>
-                                    <div class="icon-to-heading"></div>
-                                    Data Engineer - Analytics
-                                  </button>
-                                </a>
-                                <p class="small skill-info">
-                                  Skyworks Solutions Inc.
-                                </p>
-                              </div>
-                              <div class="col-6 collapse-button">
-                                <p class="language-hello">January 2024 - June 2024</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          id="collapseThree"
-                          class="collapse"
-                          aria-labelledby="headingOne"
-                          data-parent="#accordionExample"
-                        >
-                          <div class="card-body">
-                            <div>
-                              <p class="skill-highlights">
-                                Data Pipeline Construction and Optimization<br />
-                                At Skyworks Solutions Inc., I designed and implemented over 25 data pipelines using 
-                                Python, SQL, and Airflow. These pipelines transformed and loaded large datasets from 
-                                Azure Data Lake, SQL Server, and flat files into a SQL Server Data Warehouse, 
-                                enabling efficient data flow and streamlined data accessibility for analytics purposes. 
-                                Leveraging Databricks SQL and PySpark, I applied advanced transformation techniques, 
-                                including Slowly Changing Dimensions (SCD), which enhanced data quality and historical tracking by 30%.
-                                <br /><br />
-                                Cross-Functional Collaboration and Dashboard Development<br />
-                                I worked closely with engineering and business teams to develop 
-                                comprehensive data models and PowerBI dashboards, which were pivotal 
-                                for OPEX analysis, product evaluations, and prototype development. 
-                                These dashboards optimized decision-making processes across 
-                                three business units, significantly improving operational efficiency.
-                                <br /><br />
-                                Semiconductor Data Analysis Automation<br />
-                                I engineered a data analysis application pipeline specifically 
-                                tailored for semiconductor product test data. This pipeline 
-                                streamlined the transformation of raw test data into actionable insights 
-                                for RF engineers, resulting in a reduction of over 
-                                five hours of manual work each week. My efforts improved data 
-                                accessibility and analysis speed, directly contributing to 
-                                the productivity of the engineering team.
-                                <br />
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <hr />
-
-                      <div class="card">
-                        <div class="card-header" id="headingOne">
-                          <div class="container-fluid">
-                            <div class="row">
-                              <div class="col-6">
-                                <a class="skill-title">
-                                  <button
-                                    class="btn btn-link collapsed skill-title"
-                                    type="button"
-                                    onclick="animateMe('java-progress-bar', 90)"
-                                    data-toggle="collapse"
-                                    data-target="#collapseTwo"
-                                    title="Click to expand"
-                                    aria-expanded="true"
-                                    aria-controls="collapseTwo"
-                                  >
-                                    <i class="fab fa-python"></i>
-                                    <div class="icon-to-heading"></div>
-                                    Graduate Teaching Assistant
-                                  </button>
-                                </a>
-                                <p class="small skill-info">
-                                  Northeastern University - Boston, MA
-                                </p>
-                              </div>
-                              <div class="col-6 collapse-button">
-                                <p class="language-hello">September 2023 - December 2023</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          id="collapseTwo"
-                          class="collapse"
-                          aria-labelledby="headingOne"
-                          data-parent="#accordionExample"
-                        >
-                          <div class="card-body">
-                            <div>
-                              <p class="skill-highlights">
-                                Machine Learning Pipeline Development<br />
-                                At Northeastern University, I spearheaded the development of a machine learning pipeline 
-                                using PySpark on a Hadoop cluster. 
-                                This involved optimizing data loading, conducting Exploratory Data Analysis (EDA), and automating 
-                                feature selection with correlation analysis and chi-squared tests. 
-                                These efforts resulted in a robust foundation for data processing and analysis, 
-                                ultimately supporting predictive modeling.
-                                <br /><br />
-                                Advanced Predictive Modeling<br />
-                                I built and fine-tuned various classification models, including KNN, 
-                                Random Forest, and XGBoost, improving predictive accuracy by 25%. 
-                                These models were instrumental in refining risk assessment and pricing strategies 
-                                for Prudential Life Insurance. <br />
-                                Additionally, I conducted in-depth research and benchmarking of 
-                                generative AI models (BART, Da-Vinci, and Stable Diffusion), leveraging BLEU, ROUGE, 
-                                and few-shot learning techniques to elevate model performance by 10%.
-                                <br />
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <hr />
-                      
-                      <div class="card">
-                        <div class="card-header" id="headingOne">
-                          <div class="container-fluid">
-                            <div class="row">
-                              <div class="col-6">
-                                <a class="skill-title">
-                                  <button
-                                    class="btn btn-link collapsed skill-title"
-                                    type="button"
-                                    onclick="animateMe('java-progress-bar', 90)"
-                                    data-toggle="collapse"
-                                    data-target="#collapseOne"
-                                    title="Click to expand"
-                                    aria-expanded="true"
-                                    aria-controls="collapseOne"
-                                  >
-                                    <i class="fab fa-python"></i>
-                                    <div class="icon-to-heading"></div>
-                                    Data Analyst
-                                  </button>
-                                </a>
-                                <p class="small skill-info">
-                                  Accion Labs - Mumbai,
-                                  India
-                                </p>
-                              </div>
-                              <div class="col-6 collapse-button">
-                                <p class="language-hello">January 2023 - July 2023
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          id="collapseOne"
-                          class="collapse"
-                          aria-labelledby="headingOne"
-                          data-parent="#accordionExample"
-                        >
-                          <div class="card-body">
-                            <div>
-                              <p class="skill-highlights">
-                                Data Pipeline Optimization <br />
-                                I designed and implemented ELT scripts to process over 10GB of data daily, 
-                                seamlessly transferring data from Snowflake to a MySQL data warehouse. 
-                                Using advanced SQL techniques like Common Table Expressions (CTEs), subqueries, 
-                                and window functions, I significantly reduced query execution time, 
-                                enabling faster access to data for downstream analytics dashboards.
-                                <br /><br />
-
-                                Enhanced Virtual Agent Performance <br />
-                                Leveraging Python and JavaScript, I developed REST APIs that integrated large language model 
-                                capabilities directly into ServiceNow. This boosted virtual agent performance by 20% and 
-                                included architecting vector databases to improve Natural Language Understanding (NLU) 
-                                within the knowledge management framework, enhancing overall responsiveness and accuracy. 
-                                <br />
-                                <br />
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <hr />
-
-                    </div>
-                  </div>
+                <div class="achievements">
+                    <p class="achievement">Designed and deployed scalable ETL pipelines processing 2M+ unstructured text records from social/news feeds, enabling downstream NLP, sentiment analysis, and actionable product-market insights</p>
+                    <p class="achievement">Built EC2-hosted machine learning pipeline orchestrated with AWS Lambda, automating Latent Semantic Indexing (LSI) training and reducing manual retraining cycles by 70%</p>
+                    <p class="achievement">Utilized Terraform scripts to deploy repeatable AWS infrastructure, ensuring high availability and reproducibility</p>
+                    <p class="achievement">Developed interactive Tableau dashboards combining NLP insights with CRM segmentation, empowering marketing teams to make data-driven decisions and increasing campaign conversions by 15%</p>
                 </div>
-
-                <!-- Coding Skills -->
-                <div
-                  class="tab-pane fade show"
-                  id="pills-coding"
-                  role="tabpanel"
-                  aria-labelledby="pills-coding-tab"
-                >
-                  <!-- Skills here -->
-                  <div class="skill-body">
-                    <div class="accordion" id="accordionExample">
-                      
-                      <!-- Python -->
-                      <div class="card">
-                        <div class="card-header" id="headingTwo">
-                          <div class="container-fluid">
-                            <div class="row">
-                              <div class="col-6">
-                                <a class="skill-title">
-                                  <button
-                                    class="btn btn-link collapsed skill-title"
-                                    type="button"
-                                    onclick="animateMe('python-progress-bar', 99)"
-                                    data-toggle="collapse"
-                                    data-target="#collapseTwo"
-                                    title="Click to expand"
-                                    aria-expanded="false"
-                                    aria-controls="collapseTwo"
-                                  >
-                                    <i class="fab fa-python"></i>
-                                    <div class="icon-to-heading"></div>
-                                    Python
-                                  </button>
-                                </a>
-                                <p class="small skill-info">
-                                  Experienced Python developer adept at crafting efficient and innovative solutions, with expertise in data science, machine learning, and web development.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          id="collapseTwo"
-                          class="collapse"
-                          aria-labelledby="headingTwo"
-                          data-parent="#accordionExample"
-                        >
-                          <div class="card-body">
-                            <div class="proficiency-bar-and-text">
-                              <div class="progress">
-                                <div
-                                  class="progress-bar proficiency"
-                                  role="progressbar"
-                                  id="python-progress-bar"
-                                ></div>
-                              </div>
-                              <p class="small font-weight-bold font-italic">
-                                Professional
-                              </p>
-                            </div>
-                            <div>
-                              <p class="skill-highlights">
-                                Applied Python proficiency extensively in data engineering and data science projects, employing libraries such as <b>NumPy, Pandas, Plotly, PyTorch, scikit-learn, SciPy, TensorFlow</b>.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <hr />
-                      <!-- R -->
-                      <div class="card">
-                        <div class="card-header" id="headingFive">
-                          <div class="container-fluid">
-                            <div class="row">
-                              <div class="col-6">
-                                <a class="skill-title">
-                                  <button
-                                    class="btn btn-link collapsed skill-title"
-                                    type="button"
-                                    onclick="animateMe('php-progress-bar', 80)"
-                                    data-toggle="collapse"
-                                    data-target="#collapseFive"
-                                    title="Click to expand"
-                                    aria-expanded="false"
-                                    aria-controls="collapseFive"
-                                  >
-                                    <i class="fab fa-R"></i>
-                                    <div class="icon-to-heading"></div>
-                                    R
-                                  </button>
-                                </a>
-                                <p class="small skill-info">
-                                  Primarily used R for statistical computing, data analysis, and graphics
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          id="collapseFive"
-                          class="collapse"
-                          aria-labelledby="headingFive"
-                          data-parent="#accordionExample"
-                        >
-                          <div class="card-body">
-                            <div class="proficiency-bar-and-text">
-                              <div class="progress">
-                                <div
-                                  class="progress-bar proficiency"
-                                  role="progressbar"
-                                  id="php-progress-bar"
-                                ></div>
-                              </div>
-                              <p class="small font-weight-bold font-italic">
-                                Intermediate
-                              </p>
-                            </div>
-                            <div>
-                              <p class="skill-highlights">
-                                Proficient in R for statistical analysis and data visualization, leveraging its capabilities for insightful data exploration.
-                                <br />
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <hr />
-
-
-                      <!-- Java -->
-                      <div class="card">
-                        <div class="card-header" id="headingOne">
-                          <div class="container-fluid">
-                            <div class="row">
-                              <div class="col-6">
-                                <a class="skill-title">
-                                  <button
-                                    class="btn btn-link collapsed skill-title"
-                                    type="button"
-                                    onclick="animateMe('java-progress-bar', 90)"
-                                    data-toggle="collapse"
-                                    data-target="#collapseOne"
-                                    title="Click to expand"
-                                    aria-expanded="true"
-                                    aria-controls="collapseOne"
-                                  >
-                                    <i class="fab fa-java"></i>
-                                    <div class="icon-to-heading"></div>
-                                    Java
-                                  </button>
-                                </a>
-                                <p class="small skill-info">
-                                  Proficient in Java with hands-on experience in developing scalable and robust applications, leveraging object-oriented principles and Java frameworks.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          id="collapseOne"
-                          class="collapse"
-                          aria-labelledby="headingOne"
-                          data-parent="#accordionExample"
-                        >
-                          <div class="card-body">
-                            <div class="proficiency-bar-and-text">
-                              <div class="progress">
-                                <div
-                                  class="progress-bar proficiency"
-                                  role="progressbar"
-                                  id="java-progress-bar"
-                                ></div>
-                              </div>
-                              <p class="small font-weight-bold font-italic">
-                                Professional
-                              </p>
-                            </div>
-                            <div>
-                              <p class="skill-highlights">
-                                Demonstrated proficiency in <b>Java language, Java Swing, Java NetBeans, and Java AWT</b> for creating a user-friendly interface.
-                                Implemented <b>Object-Oriented Programming (OOP)</b> concepts to ensure a modular and scalable codebase,
-                                enhancing the maintainability of the application. Also leveraged expertise in algorithms, and data structures.
-                                Well-versed in <b>core Java</b> concepts <br />
-                                
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <hr />
-
-                      <!-- SQL -->
-                      <div class="card">
-                        <div class="card-header" id="headingSix">
-                          <div class="container-fluid">
-                            <div class="row">
-                              <div class="col-6">
-                                <a class="skill-title">
-                                  <button
-                                    class="btn btn-link collapsed skill-title"
-                                    type="button"
-                                    onclick="animateMe('sql-progress-bar', 95)"
-                                    data-toggle="collapse"
-                                    data-target="#collapseSix"
-                                    title="Click to expand"
-                                    aria-expanded="false"
-                                    aria-controls="collapseSix"
-                                  >
-                                    <i class="fas fa-database"></i>
-                                    <div class="icon-to-heading"></div>
-                                    SQL
-                                  </button>
-                                </a>
-                                <p class="small skill-info">
-                                  SQL (Structured Query Language) a domain-specific language used for managing and manipulating relational databases, enabling users to query, update, and interact with structured data efficiently.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          id="collapseSix"
-                          class="collapse"
-                          aria-labelledby="headingSix"
-                          data-parent="#accordionExample"
-                        >
-                          <div class="card-body">
-                            <div class="proficiency-bar-and-text">
-                              <div class="progress">
-                                <div
-                                  class="progress-bar proficiency"
-                                  role="progressbar"
-                                  id="sql-progress-bar"
-                                ></div>
-                              </div>
-                              <p class="small font-weight-bold font-italic">
-                                Proficient
-                              </p>
-                            </div>
-                            <div>
-                              <p class="skill-highlights">
-                                Worked with many relational databases -
-
-                                In various projects, I've leveraged my expertise in <b></b>MySQL, MSSQL Server and Oracle </b>to design and implement robust relational databases. 
-                                This involves creating optimized database schemas, defining relationships between tables, and ensuring efficient data management through the execution of SQL queries. 
-                                I've applied these skills to enhance data organization, retrieval, and manipulation, contributing to the success of projects in data engineering and database management.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                        <hr />
-                       <!-- HTML, CSS, JS -->
-                       <div class="card">
-                        <div class="card-header" id="headingFour">
-                          <div class="container-fluid">
-                            <div class="row">
-                              <div class="col-6">
-                                <a class="skill-title">
-                                  <button
-                                    class="btn btn-link collapsed skill-title"
-                                    type="button"
-                                    onclick="animateMe('web-progress-bar', 80)"
-                                    data-toggle="collapse"
-                                    data-target="#collapseFour"
-                                    title="Click to expand"
-                                    aria-expanded="false"
-                                    aria-controls="collapseFour"
-                                  >
-                                    <i class="fas fa-file-code"></i>
-                                    <div class="icon-to-heading"></div>
-                                    HTML, CSS and JavaScript
-                                  </button>
-                                </a>
-                                <p class="small skill-info">
-                                  The languages that make up the web.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          id="collapseFour"
-                          class="collapse"
-                          aria-labelledby="headingFour"
-                          data-parent="#accordionExample"
-                        >
-                          <div class="card-body">
-                            <div class="proficiency-bar-and-text">
-                              <div class="progress">
-                                <div
-                                  class="progress-bar proficiency"
-                                  role="progressbar"
-                                  id="web-progress-bar"
-                                ></div>
-                              </div>
-                              <p class="small font-weight-bold font-italic">
-                                Intermediate
-                              </p>
-                            </div>
-                            <div>
-                              <p class="skill-highlights">
-                                Made many websites using
-                                <b>HTML, CSS, Js</b> with Node, PHP and Flask
-                                backends <br />
-                                Well versed in <b>Bootstrap</b> <br />
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <hr />
-
-
-                      <!-- C/C++ -->
-                      <div class="card">
-                        <div class="card-header" id="headingThree">
-                          <div class="container-fluid">
-                            <div class="row">
-                              <div class="col-6">
-                                <a class="skill-title">
-                                  <button
-                                    class="btn btn-link collapsed skill-title"
-                                    type="button"
-                                    onclick="animateMe('c-progress-bar', 60)"
-                                    data-toggle="collapse"
-                                    data-target="#collapseThree"
-                                    title="Click to expand"
-                                    aria-expanded="false"
-                                    aria-controls="collapseThree"
-                                  >
-                                    <i class="fab fa-cuttlefish"></i>
-                                    <div class="icon-to-heading"></div>
-                                    C / C++
-                                  </button>
-                                </a>
-                                <p class="small skill-info">
-                                  A general purpose system programming language.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          id="collapseThree"
-                          class="collapse"
-                          aria-labelledby="headingThree"
-                          data-parent="#accordionExample"
-                        >
-                          <div class="card-body">
-                            <div class="proficiency-bar-and-text">
-                              <div class="progress">
-                                <div
-                                  class="progress-bar proficiency"
-                                  role="progressbar"
-                                  id="c-progress-bar"
-                                ></div>
-                              </div>
-                              <p class="small font-weight-bold font-italic">
-                                Basic
-                              </p>
-                            </div>
-                            <div>
-                              <p class="skill-highlights">
-                                Well versed in concepts of the language <br />
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <hr />
-
-
-                    </div>
-                  </div>
-                  <!-- Skills here -->
-                </div>
-
-                <!-- Tools -->
-                <div class="tab-pane fade" id="pills-tools" role="tabpanel" aria-labelledby="pills-tools-tab">
-                  <!-- Tools Here -->
-                  <div class="skill-body">
-                    <div class="accordion" id="accordionExample1">
-
-
-                      <!-- Programming Languages -->
-                      <div class="card">
-                        <div class="card-header" id="headingThree1">
-                          <div class="container-fluid">
-                            <div class="row">
-                              <div class="col-6">
-                                <a class="skill-title"> Programming languages </a>
-                                <p class="small skill-info"><b>Python, R, Java, Scala, C, C#</b></p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <hr />
-
-                      <!-- Operating Systems -->
-                      <div class="card">
-                        <div class="card-header" id="headingThree1">
-                          <div class="container-fluid">
-                            <div class="row">
-                              <div class="col-6">
-                                <a class="skill-title"> Operating Systems </a>
-                                <p class="small skill-info"><b>Linux, Unix</b></p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                
-                      <hr />
-                
-                      <!-- Cloud Platforms -->
-                      <div class="card">
-                        <div class="card-header" id="headingFour1">
-                          <div class="container-fluid">
-                            <div class="row">
-                              <div class="col-6">
-                                <a class="skill-title"> Cloud Platforms </a>
-                                <p class="small skill-info"><b> Google Cloud, Heroku, AWS, Azure</b></p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                
-                      <hr />
-                
-                       <!-- DevOps & Workflow Management -->
-                      <div class="card">
-                        <div class="card-header" id="headingSeven1">
-                          <div class="container-fluid">
-                            <div class="row">
-                              <div class="col-6">
-                                <a class="skill-title"> DevOps & Workflow Management </a>
-                                <p class="small skill-info"><b>Docker, Apache Airflow</b></p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <hr />
-
-
-                      <!-- Web Development -->
-                      <div class="card">
-                        <div class="card-header" id="headingFive1">
-                          <div class="container-fluid">
-                            <div class="row">
-                              <div class="col-6">
-                                <a class="skill-title"> Web Development </a>
-                                <p class="small skill-info"><b>FastAPI, Postman, JWT</b></p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <hr />
-                      <!-- Version Control -->
-                      <div class="card">
-                        <div class="card-header" id="headingOne1">
-                          <div class="container-fluid">
-                            <div class="row">
-                              <div class="col-6">
-                                <a class="skill-title"> Version Control </a>
-                                <p class="small skill-info"><b>GitHub</b></p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <hr />
-                
-                      <!-- Data Visualization Tools -->
-                      <div class="card">
-                        <div class="card-header" id="headingNine1">
-                          <div class="container-fluid">
-                            <div class="row">
-                              <div class="col-6">
-                                <a class="skill-title"> Data Visualization Tools </a>
-                                <p class="small skill-info"><b>PowerBI, Tableau</b></p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <hr />
-                      <!-- Snowflake -->
-                      <div class="card">
-                        <div class="card-header" id="headingTwo1">
-                          <div class="container-fluid">
-                            <div class="row">
-                              <div class="col-6">
-                                <a class="skill-title"> Snowflake </a>
-                                <p class="small skill-info"></p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <hr />
-                       <!-- Servicenow -->
-                       <div class="card">
-                        <div class="card-header" id="headingTwo1">
-                          <div class="container-fluid">
-                            <div class="row">
-                              <div class="col-6">
-                                <a class="skill-title"> ServiceNow </a>
-                                <p class="small skill-info"></p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <hr />
-                    </div>
-                  </div>
-                </div>
-                
-              </div>
             </div>
 
-            <div class="col-sm-0 col-md-1 col-lg-2"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Projects -->
-      <div
-        class="tab-pane fade"
-        id="pills-projects"
-        role="tabpanel"
-        aria-labelledby="pills-Projects-tab"
-      >
-        <div class="breaker"></div>
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-sm-0 col-md-1 col-lg-2"></div>
-            <div class="col-sm-12 col-md-10 col-lg-8">
-              <div class="breaker"></div>
-
-              <!-- Visit my Github -->
-              <table id="github-table">
-                <tr
-                  title="Visit my Github !!"
-                  class="social-row"
-                  onmouseover="onMouseOver('github')"
-                  onmouseout="onMouseOut('github')"
-                >
-                  <td class="social">
-                    <a
-                      class="social-icon icon-to-heading"
-                      href="https://github.com/shardulchavan"
-                      target="_blank"
-                    >
-                      <i class="fab fa-github" id="github"></i
-                    ></a>
-                  </td>
-                  <td class="social-link">
-                    <div class="social-link-anchor-div">
-                      <a
-                        class="social-link-anchor"
-                        id="github-link"
-                        href="https://github.com/shardulchavan"
-                      >
-                        shardulchavan
-                      </a>
-                    </div>
-                  </td>
-                </tr>
-              </table>
-
-              <div class="skill-body" id="projects">
-                <div class="accordion" id="github-projects">
-                  <!-- Movie Recommendation Website -->
-                  <div class="card" id="myIMDB">
-                    <div class="card-header" id="githubThree">
-                      <div class="container-fluid">
-                        <div class="row">
-                          <div class="col-6 no-margin no-margin">
-                            <a class="skill-title">
-                              <button
-                                class="btn btn-link collapsed skill-title"
-                                type="button"
-                                data-toggle="collapse"
-                                data-target="#project-collapseThree"
-                                title="Click to expand"
-                                aria-expanded="true"
-                                aria-controls="project-collapseThree"
-                              >
-                              Exploratory Data Analysis on Time Series Data
-                              </button>
-                            </a>
-                            <p class="small skill-info">
-                              
-                            </p>
-                          </div>
-                          <div class="col-6 code-icons">
-                            <i class="fab fa-python"></i>
-                            &nbsp;
-                            <i class="fas fa-chart-line"></i>
-                            
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      id="project-collapseThree"
-                      class="collapse"
-                      aria-labelledby="githubThree"
-                      data-parent="#github-projects"
-                    >
-                      <div class="card-body">
-                        <p class="skill-highlights">
-                            In this project, I conducted a comprehensive Exploratory Data Analysis (EDA) on time series data, delving into the world of temporal patterns and relationships. Through insightful visualization techniques, including Autocorrelation Function (ACF) and Partial Autocorrelation Function (PACF) plots, I deciphered the underlying patterns and trends within the data. Building upon the EDA insights, I developed robust time series forecasting models, specifically employing ARIMA (AutoRegressive Integrated Moving Average) and SARIMA (Seasonal AutoRegressive Integrated Moving Average). This project exemplifies my passion for data analysis and time series forecasting. By skillfully integrating statistical techniques and cutting-edge methodologies, I successfully harnessed the power of data to predict future trends and outcomes accurately.
-                            <br />
-                          <a
-                            href="https://github.com/shardulchavan/Time_Series_Forecasting"
-                            target="_blank"
-                          >
-                            <i class="fab fa-github"></i>
-                            Link to Github Repo
-                          </a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <hr />
-
-                  <!-- Financier -->
-                  <div class="card" id="financier">
-                    <div class="card-header" id="githubSeven">
-                      <div class="container-fluid">
-                        <div class="row">
-                          <div class="col-6 no-margin">
-                            <a class="skill-title">
-                              <button
-                                class="btn btn-link collapsed skill-title"
-                                type="button"
-                                data-toggle="collapse"
-                                data-target="#project-collapseSeven"
-                                title="Click to expand"
-                                aria-expanded="true"
-                                aria-controls="project-collapseSeven"
-                              >
-                              Causal Analysis for Marketing Project
-                              </button>
-                            </a>
-                            <p class="small skill-info">
-                              
-                            </p>
-                          </div>
-                          <div class="col-6 code-icons">
-                            <i class="fab fa-python"></i>
-                            &nbsp;
-                            <i class="fas fa-chart-pie"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      id="project-collapseSeven"
-                      class="collapse"
-                      aria-labelledby="githubSeven"
-                      data-parent="#github-projects"
-                    >
-                      <div class="card-body">
-                        <p class="skill-highlights">
-                            In my Causal Analysis for Marketing Project, I harnessed advanced statistical techniques to uncover causal relationships in marketing variables and customer behavior. Leveraging a Bank Marketing dataset, I meticulously preprocessed and engineered features, unveiling the real impact of factors on customer subscriptions. The introduction of a "Contact" variable revealed a 2.8% increase in subscription likelihood upon being contacted, strongly substantiated by statistical tests. This project underscores the power of causal analysis for data-driven marketing strategies, considering complexities like confounding variables and offering actionable insights.
-
-                          <br />
-                          <a
-                            href="https://github.com/shardulchavan/Causal-Analysis-for-Marketing-Project"
-                            target="_blank"
-                          >
-                            <i class="fab fa-github"></i>
-                            Link to Github Repo
-                          </a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <hr />
-
-                  <!-- Financier -->
-                  <div class="card" id="financier">
-                    <div class="card-header" id="githubSeven">
-                      <div class="container-fluid">
-                        <div class="row">
-                          <div class="col-6 no-margin">
-                            <a class="skill-title">
-                              <button
-                                class="btn btn-link collapsed skill-title"
-                                type="button"
-                                data-toggle="collapse"
-                                data-target="#project-collapseFour"
-                                title="Click to expand"
-                                aria-expanded="true"
-                                aria-controls="project-collapseFour"
-                              >
-                              Drowning Accident Detection using OpenCV
-                              </button>
-                            </a>
-                            <p class="small skill-info">
-                              
-                            </p>
-                          </div>
-                          <div class="col-6 code-icons">
-                            <i class="fab fa-python"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      id="project-collapseFour"
-                      class="collapse"
-                      aria-labelledby="githubSeven"
-                      data-parent="#github-projects"
-                    >
-                      <div class="card-body">
-                        <p class="skill-highlights">
-                            In this project, I led the deployment of advanced deep learning models, including Time-Series analysis and ConvLSTM, to engineer a highly effective Video Classification and Action Recognition system aimed at identifying drowning accidents. This project exemplifies my passion for harnessing the power of deep learning techniques, particularly ConvLSTM and Time-Series analysis, to develop robust and efficient solutions for critical applications such as accident prevention and human safety. The successful deployment of a Long-term recurrent convolutional network (LRCN) showcases the potential of AI-driven systems in addressing real-world challenges.
-
-                          <br />
-                          <a
-                            href="https://github.com/shardulchavan"
-                            target="_blank"
-                          >
-                            <i class="fab fa-github"></i>
-                            Link to Github Repo
-                          </a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <hr />
-                 
+            <div class="experience-card">
+                <div class="company-name">Skyworks Solutions Inc.</div>
+                <div class="role-title">Data Analytics Engineer Co-op</div>
+                <div class="date-location">
+                    <i class="far fa-calendar"></i> Jan 2024 - Jun 2024 | <i class="fas fa-map-marker-alt"></i> Boston, MA
                 </div>
-              </div>
-            </div>
-            <div class="col-sm-0 col-md-1 col-lg-2"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Contact -->
-      <div
-        class="tab-pane fade"
-        id="pills-contact"
-        role="tabpanel"
-        aria-labelledby="pills-contact-tab"
-      >
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-sm-0 col-md-1 col-lg-2"></div>
-            <div class="col-sm-12 col-md-10 col-lg-8">
-              <div class="breaker" style="margin-top: 3rem"></div>
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-sm-1 col-md-2 col-lg-3"></div>
-                  <div class="col-sm-10 col-md-8 col-lg-6">
-                    <div class="contact-platform">
-                      <div class="container-fluid" id="column-1-contact">
-                        <div class="row">
-                          <div class="col-5">
-                            <table>
-                              <!-- Instagram -->
-                              <tr
-                                title="Online galleria"
-                                class="social-row"
-                                onmouseover="onMouseOver('instagram')"
-                                onmouseout="onMouseOut('instagram')"
-                              >
-                                <td class="social">
-                                  <a
-                                    class="social-icon"
-                                    href="https://www.instagram.com/chavan.shardul/"
-                                    target="_blank"
-                                  >
-                                    <i
-                                      class="fab fa-instagram"
-                                      id="instagram"
-                                    ></i>
-                                  </a>
-                                </td>
-                                <td class="social-link">
-                                  <div class="social-link-anchor-div">
-                                    <a
-                                      class="social-link-anchor"
-                                      id="instagram-link"
-                                      href="https://www.instagram.com/chavan.shardul/"
-                                      target="_blank"
-                                    >
-                                      @chavan.shardul
-                                    </a>
-                                  </div>
-                                </td>
-                              </tr>
-
-                              <!-- LinkedIn -->
-                              <tr
-                                title="Professional Space"
-                                class="social-row"
-                                onmouseover="onMouseOver('linkedin')"
-                                onmouseout="onMouseOut('linkedin')"
-                              >
-                                <td class="social">
-                                  <a
-                                    class="social-icon"
-                                    href="https://www.linkedin.com/in/shardulchavan36/"
-                                    target="_blank"
-                                  >
-                                    <i
-                                      class="fab fa-linkedin"
-                                      id="linkedin"
-                                    ></i>
-                                  </a>
-                                </td>
-                                <td class="social-link">
-                                  <div class="social-link-anchor-div">
-                                    <a
-                                      class="social-link-anchor"
-                                      id="linkedin-link"
-                                      href="https://www.linkedin.com/in/shardulchavan36/"
-                                      target="_blank"
-                                    >
-                                      Shardul Chavan<br />
-                                      (shardulchavan36)
-                                    </a>
-                                  </div>
-                                </td>
-                              </tr>
-                            </table>
-                          </div>
-                          <div class="col-2"></div>
-                          <div class="col-5">
-                            <table>
-                              <!-- Email -->
-                              <tr
-                                title="Mail Me!!"
-                                class="social-row"
-                                onmouseover="onMouseOver('gmail')"
-                                onmouseout="onMouseOut('gmail')"
-                              >
-                                <td class="social">
-                                  <a
-                                    class="social-icon"
-                                    href="mailto:shardulc36@gmail.com"
-                                    target="_blank"
-                                  >
-                                    <i class="far fa-envelope" id="gmail"></i
-                                  ></a>
-                                </td>
-                                <td class="social-link">
-                                  <div class="social-link-anchor-div">
-                                    <a
-                                      class="social-link-anchor"
-                                      id="gmail-link"
-                                      href="mailto:chavan.shardul360@gmail.com"
-                                    >
-                                      chavan.shardul360@gmail.com
-                                    </a>
-                                  </div>
-                                </td>
-                              </tr>
-                              <!-- Medium -->
-                              <tr
-                                title="Articles"
-                                class="social-row"
-                                onmouseover="onMouseOver('medium')"
-                                onmouseout="onMouseOut('medium')"
-                              >
-                                <td class="social">
-                                  <a
-                                    class="social-icon"
-                                    href="https://medium.com/@chavan.shardul360"
-                                    target="_blank"
-                                  >
-                                    <i class="fab fa-medium" id="medium"></i>
-                                  </a>
-                                </td>
-                                <td class="social-link">
-                                  <div class="social-link-anchor-div">
-                                    <a
-                                      class="social-link-anchor"
-                                      id="medium-link"
-                                      href="https://medium.com/@chavan.shardul360"
-                                      target="_blank"
-                                    >
-                                      Shardul Chavan<br />(@chavan.shardul360)
-                                    </a>
-                                  </div>
-                                </td>
-                              </tr>
-                            </table>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-1 col-md-2 col-lg-3"></div>
+                <div class="achievements">
+                    <p class="achievement">Engineered 25+ Airflow and dbt pipelines across Azure SQL and data lakes, reducing data refresh latency by 60% and boosting accessibility for analytics teams</p>
+                    <p class="achievement">Standardized RF testing data into analytics-ready formats, saving 5+ engineering hours weekly and accelerating high-volume RF module validation</p>
+                    <p class="achievement">Containerized data services with Docker and set up Prometheus monitoring to track performance and failures, reducing downtime by 45%</p>
+                    <p class="achievement">Ensured data governance by integrating validation with Great Expectations and enforcing RBAC + row-level security policies</p>
+                    <p class="achievement">Designed scalable dimensional data models and built interactive Power BI dashboards for 3 business units</p>
                 </div>
-              </div>
             </div>
-            <div class="col-sm-0 col-md-1 col-lg-2"></div>
-          </div>
+
+            <div class="experience-card">
+                <div class="company-name">Northeastern University</div>
+                <div class="role-title">BI Analyst & AI Researcher</div>
+                <div class="date-location">
+                    <i class="far fa-calendar"></i> Sep 2023 - Dec 2024 | <i class="fas fa-map-marker-alt"></i> Boston, MA
+                </div>
+                <div class="achievements">
+                    <p class="achievement">Developed scalable PySpark pipelines on Hadoop to process 1.2M+ insurance records, enabling efficient feature engineering for risk modeling and improving predictive accuracy by 20%</p>
+                    <p class="achievement">Mentored 50+ graduate students in building applied AI/BI applications, integrating LLMs (OpenAI, Anthropic) into enterprise analytics use cases</p>
+                    <p class="achievement">Built SnowGPT, a LangChain-powered tool on Snowflake, enabling natural language-to-SQL translation driving 40% increase in self-service analytics adoption</p>
+                    <p class="achievement">Deployed containerized ML models with Docker and GitHub Actions CI/CD, reducing manual deployment time by 60%</p>
+                </div>
+            </div>
+
+            <div class="experience-card">
+                <div class="company-name">Accion Labs</div>
+                <div class="role-title">Data Analytics Engineer</div>
+                <div class="date-location">
+                    <i class="far fa-calendar"></i> Jan 2022 - Jul 2022 | <i class="fas fa-map-marker-alt"></i> Mumbai, India
+                </div>
+                <div class="achievements">
+                    <p class="achievement">Engineered REST-based integrations between LLM APIs and ServiceNow, enhancing conversational AI for support bots, resulting in a 40% reduction in ticket escalations</p>
+                    <p class="achievement">Built parameterized SQL automation scripts to streamline reporting cycles, while partnering with QA and product teams to validate data accuracy against KPIs and SLA thresholds</p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
+    </section>
 
-    <!-- footer -->
-    <div class="text-center" id="footer">
-      <div class="footer-breaker"></div>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm-0 col-md-1 col-lg-2"></div>
-          <div
-            class="col-sm-12 col-md-10 col-lg-8 font-weight-bold footer-display"
-          >
-            Shardul Chavan &#169;
-            <a id="date-and-time">April, 2020</a>
-          </div>
-          <div class="col-sm-0 col-md-1 col-lg-2"></div>
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>NewsSphere</h3>
+                            <p class="mb-0">Personalized News Platform</p>
+                        </div>
+                        <div class="project-body">
+                            <p>Engineered FastAPI-based services with optimized RAG indexing, reducing content retrieval times by 35% and driving higher user engagement.</p>
+                            <p>Deployed containerized Streamlit app with Docker + Kubernetes, ensuring fast, reliable personalized news delivery every 8 minutes.</p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">Google Cloud</span>
+                                <span class="tech-badge">Docker</span>
+                                <span class="tech-badge">Pinecone</span>
+                                <span class="tech-badge">FastAPI</span>
+                                <span class="tech-badge">Azure SQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>YouTube Data Analytics</h3>
+                            <p class="mb-0">AWS-Based Analytics Platform</p>
+                        </div>
+                        <div class="project-body">
+                            <p>Built serverless ELT pipeline using AWS Lambda, Glue, and Redshift to analyze 80K+ user interactions in real-time.</p>
+                            <p>Automated deployment with Terraform IaC and scaled workloads via Kubernetes (EKS), improving pipeline resilience.</p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">AWS Lambda</span>
+                                <span class="tech-badge">Redshift</span>
+                                <span class="tech-badge">Terraform</span>
+                                <span class="tech-badge">Kubernetes</span>
+                                <span class="tech-badge">QuickSight</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Retail Sales Pipeline</h3>
+                            <p class="mb-0">Large-Scale Data Processing</p>
+                        </div>
+                        <div class="project-body">
+                            <p>Architected Spark pipeline processing 1M+ retail transactions, enabling trend analysis and accurate forecasting.</p>
+                            <p>Implemented Grafana dashboards and OpenTelemetry tracing for proactive error detection and pipeline observability.</p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">Apache Spark</span>
+                                <span class="tech-badge">Databricks</span>
+                                <span class="tech-badge">Azure</span>
+                                <span class="tech-badge">Grafana</span>
+                                <span class="tech-badge">OpenTelemetry</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Iowa Sales Intelligence</h3>
+                            <p class="mb-0">Enterprise BI Solution</p>
+                        </div>
+                        <div class="project-body">
+                            <p>Engineered ETL workflows processing 25M+ sales records using Azure Data Factory and Alteryx.</p>
+                            <p>Built Kimball-based models to boost ingestion speed by 60% and developed Power BI dashboards for improved forecasting.</p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">Azure Data Factory</span>
+                                <span class="tech-badge">Alteryx</span>
+                                <span class="tech-badge">Power BI</span>
+                                <span class="tech-badge">Talend</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="footer-breaker"></div>
-    </div>
+    </section>
 
-    <button onclick="topFunction()" id="myBtn" title="Go to top">
-      <i class="fas fa-arrow-up"></i>
-    </button>
+    <!-- Skills Section -->
+    <section id="skills" class="bg-white">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h4><i class="fas fa-code"></i> Programming & Scripting</h4>
+                    <div>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Scala</span>
+                        <span class="skill-tag">Bash</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C++</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h4><i class="fas fa-cogs"></i> Data Engineering</h4>
+                    <div>
+                        <span class="skill-tag">Airflow</span>
+                        <span class="skill-tag">dbt</span>
+                        <span class="skill-tag">PySpark</span>
+                        <span class="skill-tag">Databricks</span>
+                        <span class="skill-tag">AWS Glue</span>
+                        <span class="skill-tag">Azure Data Factory</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h4><i class="fas fa-cloud"></i> Cloud & Infrastructure</h4>
+                    <div>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Azure</span>
+                        <span class="skill-tag">GCP</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Terraform</span>
+                        <span class="skill-tag">Docker</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h4><i class="fas fa-database"></i> Data Platforms</h4>
+                    <div>
+                        <span class="skill-tag">Snowflake</span>
+                        <span class="skill-tag">Redshift</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">BigQuery</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h4><i class="fas fa-chart-line"></i> BI & Visualization</h4>
+                    <div>
+                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">QuickSight</span>
+                        <span class="skill-tag">Streamlit</span>
+                        <span class="skill-tag">Superset</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h4><i class="fas fa-shield-alt"></i> DevOps & Monitoring</h4>
+                    <div>
+                        <span class="skill-tag">GitHub Actions</span>
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">Prometheus</span>
+                        <span class="skill-tag">Grafana</span>
+                        <span class="skill-tag">ELK Stack</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Template -->
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-0 col-md-1 col-lg-2"></div>
-        <div class="col-sm-12 col-md-10 col-lg-8"></div>
-        <div class="col-sm-0 col-md-1 col-lg-2"></div>
-      </div>
-    </div>
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="mb-4">Let's Connect</h2>
+                <p class="lead mb-4">I'm always interested in discussing new opportunities in data engineering and cloud architecture.</p>
+                <div class="contact-links">
+                    <a href="tel:+18573135138" class="contact-link">
+                        <i class="fas fa-phone"></i> +1 (857) 313-5138
+                    </a>
+                    <a href="mailto:shardulc36@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope"></i> shardulc36@gmail.com
+                    </a>
+                    <a href="https://linkedin.com/in/shardulchavan" target="_blank" class="contact-link">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/shardulchavan" target="_blank" class="contact-link">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer class="text-center py-4">
+        <div class="container">
+            <p class="mb-0 text-muted">© 2025 Shardul Chavan. Built with passion for data engineering.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      //Get the button:
-      mybutton = document.getElementById("myBtn");
+        // Hide loader when page loads
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loader').classList.add('hide');
+            }, 500);
+        });
 
-      // When the user scrolls down 20px from the top of the document, show the button
-      window.onscroll = function () {
-        scrollFunction();
-      };
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
 
-      function scrollFunction() {
-        if (
-          document.body.scrollTop > 130 ||
-          document.documentElement.scrollTop > 130
-        ) {
-          mybutton.style.display = "block";
-        } else {
-          mybutton.style.display = "none";
-        }
-      }
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
-      // When the user clicks on the button, scroll to the top of the document
-      function topFunction() {
-        document.body.scrollTop = 0; // For Safari
-        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-      }
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
 
-      function setDate() {
-        const date = new Date();
-        const month = date.getMonth();
-        const year = date.getFullYear();
-        const monthArray = [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
-          "August",
-          "September",
-          "October",
-          "November",
-          "December",
-        ];
-        document.getElementById("date-and-time").innerHTML =
-          monthArray[month] + ", " + year;
-      }
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
 
-      function onMouseOver(id) {
-        let iconColor = "";
-        let textLink = "";
-        const icon = document.getElementById(id);
-        const link = document.getElementById(id + "-link");
-        switch (id) {
-          case "facebook":
-            iconColor = "#3b5998";
-            textLink = "#007aff";
-            break;
-          case "instagram":
-            iconColor = "#bc2a8d";
-            textLink = "#007aff";
-            break;
-          case "twitter":
-            iconColor = "#00aced";
-            textLink = "#007aff";
-            break;
-          case "gmail":
-            iconColor = "#D44638";
-            textLink = "#007aff";
-            break;
-          case "quora":
-            iconColor = "#b52b28";
-            textLink = "#007aff";
-            break;
-          case "linkedin":
-            iconColor = "#0077b3";
-            textLink = "#007aff";
-            break;
-          case "wordpress":
-            iconColor = "#207297";
-            textLink = "#007aff";
-            break;
-          case "medium":
-            iconColor = "#11100e";
-            textLink = "#007aff";
-            break;
-          case "github":
-            iconColor = "#000";
-            textLink = "#007aff";
-            break;
-        }
-        icon.style.color = iconColor;
-        link.style.color = textLink;
-      }
-
-      function onMouseOut(id) {
-        const icon = document.getElementById(id);
-        const link = document.getElementById(id + "-link");
-        icon.style.color = "#6b6e73";
-        link.style.color = "#6b6e73";
-      }
-
-      setDate();
+        // Observe all cards
+        document.querySelectorAll('.experience-card, .project-card, .skill-category').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
     </script>
-  </body>
+</body>
 </html>
