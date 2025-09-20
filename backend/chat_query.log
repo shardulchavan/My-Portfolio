@@ -1,0 +1,55 @@
+2025-09-20 08:54:10,429 - chat_query - INFO - Gemini API configured successfully
+2025-09-20 08:54:23,956 - chat_query - INFO - [query_20250920_085423] Processing query: have he worked with AI...
+2025-09-20 08:54:23,956 - chat_query - INFO - [query_20250920_085423] Classification: {"type": "experience", "specific_company": null, "specific_technology": null, "intent": "discussing_work_experience", "is_followup": false}
+2025-09-20 08:54:23,956 - chat_query - INFO - [query_20250920_085423] Found 3 relevant project links
+2025-09-20 08:54:23,956 - chat_query - ERROR - [query_20250920_085423] Unexpected error in process_query: 'ChatQueryProcessor' object has no attribute 'find_relevant_content'
+Traceback (most recent call last):
+  File "D:\My-Portfolio\backend\chat_query.py", line 375, in process_query
+    relevant_content = self.find_relevant_content(user_message)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ChatQueryProcessor' object has no attribute 'find_relevant_content'
+2025-09-20 08:54:23,956 - chat_query - INFO - Response metrics: {"query_id": "query_20250920_085423", "response_type": "emergency", "elapsed_time_seconds": 0.0, "response_length": 216, "num_links": 1, "timestamp": "2025-09-20T08:54:23.956041"}
+2025-09-20 08:58:38,451 - chat_query - INFO - Gemini API configured successfully
+2025-09-20 08:58:45,179 - chat_query - INFO - [query_20250920_085845] Processing query: have he worked with AI...
+2025-09-20 08:58:45,179 - chat_query - INFO - [query_20250920_085845] Classification: {"type": "experience", "specific_company": null, "specific_technology": null, "intent": "discussing_work_experience", "is_followup": false}
+2025-09-20 08:58:45,179 - chat_query - INFO - [query_20250920_085845] Found 3 relevant project links
+2025-09-20 08:58:45,179 - chat_query - INFO - [query_20250920_085845] Relevant content found: {"experiences": 4, "projects": 4, "skills": 0}
+2025-09-20 08:58:45,179 - chat_query - INFO - [query_20250920_085845] Sending request to Gemini API
+2025-09-20 08:58:46,609 - chat_query - INFO - Response metrics: {"query_id": "query_20250920_085845", "response_type": "gemini", "elapsed_time_seconds": 1.430216, "response_length": 739, "num_links": 3, "timestamp": "2025-09-20T08:58:46.609815"}
+2025-09-20 08:58:46,610 - chat_query - INFO - [query_20250920_085845] Successfully generated Gemini response
+2025-09-20 09:00:08,835 - chat_query - INFO - [query_20250920_090008] Processing query: how much experience he has in operations...
+2025-09-20 09:00:08,835 - chat_query - INFO - [query_20250920_090008] Classification: {"type": "company_specific", "specific_company": null, "specific_technology": null, "intent": "asking_about_specific_company", "is_followup": false}
+2025-09-20 09:00:08,835 - chat_query - INFO - [query_20250920_090008] Found 5 relevant project links
+2025-09-20 09:00:08,835 - chat_query - INFO - [query_20250920_090008] Relevant content found: {"experiences": 2, "projects": 0, "skills": 0}
+2025-09-20 09:00:08,835 - chat_query - INFO - [query_20250920_090008] Sending request to Gemini API
+2025-09-20 09:00:10,101 - chat_query - INFO - Response metrics: {"query_id": "query_20250920_090008", "response_type": "gemini", "elapsed_time_seconds": 1.26667, "response_length": 798, "num_links": 5, "timestamp": "2025-09-20T09:00:10.101907"}
+2025-09-20 09:00:10,101 - chat_query - INFO - [query_20250920_090008] Successfully generated Gemini response
+2025-09-20 09:01:17,103 - chat_query - INFO - [query_20250920_090117] Processing query: how much years of experience he has ...
+2025-09-20 09:01:17,103 - chat_query - INFO - [query_20250920_090117] Classification: {"type": "experience", "specific_company": null, "specific_technology": null, "intent": "discussing_work_experience", "is_followup": false}
+2025-09-20 09:01:17,103 - chat_query - INFO - [query_20250920_090117] Found 1 relevant project links
+2025-09-20 09:01:17,103 - chat_query - INFO - [query_20250920_090117] Relevant content found: {"experiences": 2, "projects": 0, "skills": 0}
+2025-09-20 09:01:17,103 - chat_query - INFO - [query_20250920_090117] Sending request to Gemini API
+2025-09-20 09:01:18,487 - chat_query - INFO - Response metrics: {"query_id": "query_20250920_090117", "response_type": "gemini", "elapsed_time_seconds": 1.38367, "response_length": 758, "num_links": 1, "timestamp": "2025-09-20T09:01:18.487201"}
+2025-09-20 09:01:18,488 - chat_query - INFO - [query_20250920_090117] Successfully generated Gemini response
+2025-09-20 09:19:17,358 - chat_query - INFO - Gemini API configured successfully
+2025-09-20 09:34:06,435 - chat_query - INFO - [query_20250920_093406] Processing query: how many years of experience...
+2025-09-20 09:34:06,435 - chat_query - INFO - [query_20250920_093406] Classification: {"type": "experience", "specific_company": null, "specific_technology": null, "intent": "discussing_work_experience", "is_followup": false}
+2025-09-20 09:34:06,435 - chat_query - INFO - [query_20250920_093406] Found 0 relevant project links
+2025-09-20 09:34:06,435 - chat_query - INFO - [query_20250920_093406] Relevant content found: {"experiences": 2, "projects": 0, "skills": 0}
+2025-09-20 09:34:06,435 - chat_query - INFO - [query_20250920_093406] Sending request to Gemini API
+2025-09-20 09:34:07,900 - chat_query - INFO - Response metrics: {"query_id": "query_20250920_093406", "response_type": "gemini", "elapsed_time_seconds": 1.463814, "response_length": 610, "num_links": 0, "timestamp": "2025-09-20T09:34:07.899766"}
+2025-09-20 09:34:07,900 - chat_query - INFO - [query_20250920_093406] Successfully generated Gemini response
+2025-09-20 09:59:03,202 - chat_query - INFO - [query_20250920_095903] Processing query: Tell me about your AWS experience...
+2025-09-20 09:59:03,206 - chat_query - INFO - [query_20250920_095903] Classification: {"type": "experience", "specific_company": null, "specific_technology": null, "intent": "discussing_work_experience", "is_followup": false}
+2025-09-20 09:59:03,206 - chat_query - INFO - [query_20250920_095903] Found 1 relevant project links
+2025-09-20 09:59:03,208 - chat_query - INFO - [query_20250920_095903] Relevant content found: {"experiences": 2, "projects": 0, "skills": 0}
+2025-09-20 09:59:03,210 - chat_query - INFO - [query_20250920_095903] Sending request to Gemini API
+2025-09-20 09:59:04,723 - chat_query - INFO - Response metrics: {"query_id": "query_20250920_095903", "response_type": "gemini", "elapsed_time_seconds": 1.519109, "response_length": 858, "num_links": 1, "timestamp": "2025-09-20T09:59:04.721913"}
+2025-09-20 09:59:04,723 - chat_query - INFO - [query_20250920_095903] Successfully generated Gemini response
+2025-09-20 09:59:08,417 - chat_query - INFO - [query_20250920_095908] Processing query: What's your experience with data pipelines?...
+2025-09-20 09:59:08,417 - chat_query - INFO - [query_20250920_095908] Classification: {"type": "company_specific", "specific_company": null, "specific_technology": null, "intent": "asking_about_specific_company", "is_followup": false}
+2025-09-20 09:59:08,417 - chat_query - INFO - [query_20250920_095908] Found 4 relevant project links
+2025-09-20 09:59:08,417 - chat_query - INFO - [query_20250920_095908] Relevant content found: {"experiences": 4, "projects": 5, "skills": 0}
+2025-09-20 09:59:08,417 - chat_query - INFO - [query_20250920_095908] Sending request to Gemini API
+2025-09-20 09:59:09,935 - chat_query - INFO - Response metrics: {"query_id": "query_20250920_095908", "response_type": "gemini", "elapsed_time_seconds": 1.517223, "response_length": 911, "num_links": 4, "timestamp": "2025-09-20T09:59:09.935023"}
+2025-09-20 09:59:09,935 - chat_query - INFO - [query_20250920_095908] Successfully generated Gemini response
