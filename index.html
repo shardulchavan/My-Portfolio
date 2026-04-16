@@ -182,20 +182,24 @@
       width:100%; height:100%; display:flex; align-items:center;
       justify-content:center; font-size:4.5rem; background:var(--bg3);
     }
-    .stat-card {
-      position: absolute; background: rgba(9,9,11,0.88); backdrop-filter: blur(12px);
-      border: 1px solid var(--border2); border-radius: 10px; padding: 0.55rem 0.85rem; white-space: nowrap;
+    .hero-stat-row {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 1rem;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 12px; padding: 0.9rem 1.1rem;
     }
-    .stat-n { font-family: var(--font-mono); font-size: 1.05rem; font-weight: 500; color: var(--text); display: block; }
-    .stat-l { font-size: 0.62rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.06em; }
-    .sc1 { bottom: 20px; left: -26px; }
-    .sc2 { top: 20px; right: -26px; }
-    .sc3 { bottom: 95px; right: -20px; }
+    .hero-stat { text-align: center; flex: 1; }
+    .hstat-n {
+      font-family: var(--font-mono); font-size: 1.15rem; font-weight: 500;
+      color: var(--blue); display: block; margin-bottom: 0.15rem;
+    }
+    .hstat-l { font-size: 0.65rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.3; }
+    .hstat-divider { width: 1px; height: 32px; background: var(--border2); flex-shrink: 0; margin: 0 0.5rem; }
     @media(max-width:900px){
       .hero-inner{grid-template-columns:1fr;gap:2.5rem;}
       .hero-photo-wrap{display:flex;justify-content:center;}
       .hero-photo-card{width:180px;aspect-ratio:1;border-radius:50%;}
-      .sc1,.sc2,.sc3{display:none;}
+      .hero-stat-row{padding:0.7rem 0.8rem;}
     }
 
     /* SECTION */
@@ -502,7 +506,7 @@
       <div class="hero-eyebrow">Boston, MA &nbsp;·&nbsp; Open to relocation</div>
       <h1 class="hero-h1">Software<br><em>Engineer.</em></h1>
       <p class="hero-sub">
-        I build systems <strong>end-to-end</strong> — cloud infrastructure, data pipelines, AI-powered APIs and production deployments. Shipped at <strong>Skyworks Solutions</strong> and <strong>Crewasis</strong>, processing millions of records daily.
+        I build systems <strong>end-to-end</strong>, cloud infrastructure, data pipelines, AI-powered APIs and production deployments. Shipped at <strong>Skyworks Solutions</strong> and <strong>Crewasis</strong>, processing millions of records daily.
       </p>
       <div class="hero-pills">
         <span class="pill">Data Infrastructure</span>
@@ -521,13 +525,26 @@
     </div>
     <div class="hero-photo-wrap">
       <div class="hero-photo-card">
-        <img src="assets/photo.jpg" alt="Shardul Chavan"
+        <img src="assets/profile-pic-1.png" alt="Shardul Chavan"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="hero-photo-fallback" style="display:none">🧑‍💻</div>
       </div>
-      <div class="stat-card sc1"><span class="stat-n">2M+</span><span class="stat-l">Records / day</span></div>
-      <div class="stat-card sc2"><span class="stat-n">7</span><span class="stat-l">Projects shipped</span></div>
-      <div class="stat-card sc3"><span class="stat-n">4+</span><span class="stat-l">Yrs building</span></div>
+      <div class="hero-stat-row">
+        <div class="hero-stat">
+          <span class="hstat-n">4+</span>
+          <span class="hstat-l">Years of experience</span>
+        </div>
+        <div class="hstat-divider"></div>
+        <div class="hero-stat">
+          <span class="hstat-n">2M+</span>
+          <span class="hstat-l">Records / day in prod</span>
+        </div>
+        <div class="hstat-divider"></div>
+        <div class="hero-stat">
+          <span class="hstat-n">7</span>
+          <span class="hstat-l">Projects shipped</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -535,12 +552,12 @@
 <!-- FLAGSHIP -->
 <section id="flagship">
   <div class="wrap">
-    <div class="sec-label">// flagship project</div>
+    <div class="sec-label">// flagship projects</div>
     <h2 class="sec-title">The work I'm most proud of</h2>
-    <div class="flagship-card reveal">
-      <div class="flagship-left">
-        <div>
-          <div class="f-badge">⭐ Featured Project</div>
+
+    <!-- FLAGSHIP 1: snowbridge -->
+    <div class="flagship-card reveal" style="margin-bottom:1.25rem">
+      <div class="flagship-left" style="border-left:3px solid var(--blue)">
           <div class="f-name">snowbridge</div>
           <p class="f-tagline">AI-powered database migration engine — T-SQL to Snowflake, automated end-to-end. GPT-4 converts views and stored procedures. Zero manual intervention.</p>
           <div class="f-stats">
@@ -577,6 +594,51 @@
         <div class="f-feat">
           <div class="f-feat-icon" style="background:rgba(167,139,250,0.1);color:var(--violet)"><i class="fas fa-shield-alt"></i></div>
           <div><div class="f-feat-title">Data integrity verified</div><div class="f-feat-desc">760K rows, 71 tables migrated with full verification. Built for enterprise.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FLAGSHIP 2: NewsSphere -->
+    <div class="flagship-card reveal">
+      <div class="flagship-left" style="border-left: 3px solid var(--green);">
+        <div>
+          <div class="f-badge" style="background:var(--green-dim);border-color:rgba(52,211,153,0.22);color:var(--green)">🚀 Full-Stack AI Product · Live</div>
+          <div class="f-name">NewsSphere</div>
+          <p class="f-tagline">Personalized AI news platform — user-interest-driven article delivery with text-to-speech, JWT auth, playlist management, and Airflow-powered real-time ingestion every 8 minutes.</p>
+          <div class="f-stats">
+            <div><span class="fst-n" style="color:var(--green)">8 min</span><span class="fst-l">Refresh cycle</span></div>
+            <div><span class="fst-n" style="color:var(--green)">3</span><span class="fst-l">Cloud platforms</span></div>
+            <div><span class="fst-n" style="color:var(--green)">Live</span><span class="fst-l">Deployed app</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="f-actions">
+            <a href="https://github.com/shardulchavan/NewsSphereAI" target="_blank" class="btn-primary" style="font-size:0.81rem;padding:0.6rem 1.1rem;background:var(--green);">
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+            <a href="https://bigdatateam2-finalproject.streamlit.app/" target="_blank" class="btn-outline" style="font-size:0.81rem;padding:0.6rem 1.1rem;">Live Demo →</a>
+          </div>
+          <div class="f-stack">
+            <span class="stk">FastAPI</span><span class="stk">Streamlit</span><span class="stk">Airflow</span><span class="stk">Pinecone</span><span class="stk">OpenAI</span><span class="stk">GCP</span><span class="stk">Azure SQL</span><span class="stk">JWT</span><span class="stk">Docker</span>
+          </div>
+        </div>
+      </div>
+      <div class="flagship-right">
+        <div class="f-feat">
+          <div class="f-feat-icon" style="background:var(--green-dim);color:var(--green)"><i class="fas fa-user-circle"></i></div>
+          <div><div class="f-feat-title">Interest-driven personalisation</div><div class="f-feat-desc">Users register with topic interests (Business, Environment, Tech…) — top 5 articles served per session from matching sources including BBC, NYT, Google News.</div></div>
+        </div>
+        <div class="f-feat">
+          <div class="f-feat-icon" style="background:var(--blue-dim);color:var(--blue)"><i class="fas fa-microphone"></i></div>
+          <div><div class="f-feat-title">Text-to-speech & voice input</div><div class="f-feat-desc">Full audio delivery — listen to articles hands-free. Speech-to-text for voice queries. Built and owned by Shardul end-to-end.</div></div>
+        </div>
+        <div class="f-feat">
+          <div class="f-feat-icon" style="background:var(--amber-dim);color:var(--amber)"><i class="fas fa-sync-alt"></i></div>
+          <div><div class="f-feat-title">Airflow every 8 minutes</div><div class="f-feat-desc">Scheduled DAGs ingest only new or changed articles — smart dedup keeps the feed fresh without duplicates.</div></div>
+        </div>
+        <div class="f-feat">
+          <div class="f-feat-icon" style="background:rgba(167,139,250,0.1);color:var(--violet)"><i class="fas fa-lock"></i></div>
+          <div><div class="f-feat-title">JWT auth + playlist system</div><div class="f-feat-desc">Secure login, persistent playlists saved to Azure SQL, and ephemeral queues for quick listens — full product UX.</div></div>
         </div>
       </div>
     </div>
